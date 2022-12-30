@@ -16,9 +16,28 @@ import UserInfo from "./Components/UserInfo";
 import PasswordChange from "./Components/PasswordChanging";
 import VerifyCode from "./Components/VerifyCode";
 import NewPassword from "./Components/NewPassword";
+import data from "./FireBase";
+import { useEffect } from "react";
+import {collection, getDocs } from "firebase/firestore"
+
 
 function App() {
   const [userName,setUserName] = useState("defaultName")
+  const [users,setUsers] = useState([])
+  const userRef = collection(data,"users")
+
+  
+  useEffect(()=>{
+    const foo = async () =>{
+      const store = await getDocs(userRef)
+      setUsers(store.docs.map((el)=> ({...el.data(),id:el.id})))
+      console.log(users)
+    }
+    console.log(users)
+    
+    foo()
+    return 
+  },[])
 
   return (
     <>
