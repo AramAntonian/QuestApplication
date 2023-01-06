@@ -1,6 +1,8 @@
-import { Link } from "react-router-dom"
+import { Link} from "react-router-dom"
 
 function LoggedInPage({userName}){
+  
+   
     return (
         <div>
             <h1>some text</h1>

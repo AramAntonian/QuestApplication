@@ -1,6 +1,6 @@
 import { Outlet, Link } from "react-router-dom"
 
-function Header({userName}){
+function Header(){
     return(
         <>
             <div className = "header" >
