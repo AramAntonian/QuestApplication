@@ -4,7 +4,7 @@ function UserInfo({userName}){
 
     return(
         <div>
-            <h1>{userName}</h1>
+            <h1>{userName.firstName}</h1>
             <p>points</p>
             <p>some info</p>
             <Link to = "/">sign out</Link><br />

@@ -20,7 +20,10 @@ import NewPassword from "./Components/NewPassword";
 
 
 function App() {
-  const [userName,setUserName] = useState("")
+  const [userName,setUserName] = useState({
+    firstName:"",
+    lastName:"",
+  })
 
   useEffect(()=>{
     setUserName(localStorage.getItem('USERNAME'))
@@ -41,7 +44,7 @@ function App() {
           </Route>
           <Route  path = "/signIn" element = {<SignIn userName={userName} setUserName = {setUserName} />} />
           <Route path = "/signUp" element =  {<SignUp setUserName = {setUserName}/>} />
-          <Route path = {`/${userName}`} element = {<LoggedInHeader userName = {userName}/>}>
+          <Route path = {`/${userName.firstName}`} element = {<LoggedInHeader userName = {userName}/>}>
             <Route index element = {<LoggedInPage userName={userName}/>} />
             <Route path = "firstMuseum" element = {<QuestPage num= "1" userName = {userName}/>}/>
             <Route path = "secondMuseum" element = {<QuestPage num= "2" userName = {userName}/>}/>
@@ -68,10 +71,10 @@ function App() {
             <Route path = "forthMuseum/forthLevel" element = {<Levels num = "4.4" userName={userName}/>}/>
             <Route path = "forthMuseum/fifthLevel" element = {<Levels num = "4.5" userName={userName}/>}/>
           </Route>
-          <Route path = {`/${userName}/info`} element = {<UserInfo userName = {userName}/>} />
-          <Route path = {`/${userName}/changePassword`} element = {<PasswordChange   userName = {userName} isSignedIn = {true}/>} />
-          <Route path = {`/${userName}/verifyCode`} element = {<VerifyCode userName={ userName } isSignedIn  = {true}/>} />
-          <Route path = {`/${userName}/newPassword`}  element = {<NewPassword userName={ userName } isSignedIn = {true} />}/>
+          <Route path = {`/${userName.firstName}/info`} element = {<UserInfo userName = {userName}/>} />
+          <Route path = {`/${userName.firstName}/changePassword`} element = {<PasswordChange   userName = {userName} isSignedIn = {true}/>} />
+          <Route path = {`/${userName.firstName}/verifyCode`} element = {<VerifyCode userName={ userName } isSignedIn  = {true}/>} />
+          <Route path = {`/${userName.firstName}/newPassword`}  element = {<NewPassword userName={ userName } isSignedIn = {true} />}/>
           <Route path = "/signIn/forgetPassword" element = {<PasswordChange /> } />
           <Route path = "/signIn/verifyCode" element = {<VerifyCode />} />
           <Route path = "/signIn/newPassword" element = {<NewPassword />} />

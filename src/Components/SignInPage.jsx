@@ -16,7 +16,8 @@ function SignIn({userName,setUserName}){
     useEffect(()=>{
         localStorage.setItem("USERNAME","")
     },[])
-   
+    
+
     
 
  
@@ -25,7 +26,7 @@ function SignIn({userName,setUserName}){
            {
             isSignedUp?<div className="welcome">
                 <p>successfully</p>
-                <Link to = {`/${userName}`} className="beckTo">go to page</Link>
+                <Link to = {`/${userName.firstName}`} className="beckTo">go to page</Link>
             </div>:null
         }
             <Link to = "/"  className='backDrop'>{"<"}</Link>
@@ -51,7 +52,7 @@ function SignIn({userName,setUserName}){
                         <Link to = {`/signIn/forgetPassword`} className = "forget-signup"  >Forget Password?</Link><br />
                         <Link to = "/signUp" className='forget-signup'>Sign up</Link> 
                     </div>
-                    <div className='googleSignIn'onClick = {() => signInWithGoogle(setUserName,setIsSignedUp)}>
+                    <div className='googleSignIn'onClick = {() => signInWithGoogle(setUserName,setIsSignedUp,email,password)}>
                         <img className = "google" src = "https://tse4.mm.bing.net/th?id=OIP.HgH-NjiOdFOrkmwjsZCCfAHaHl&pid=Api&P=0" alt = "google"/>
                         <p className='googleText'>sign in with google</p>
                     </div>

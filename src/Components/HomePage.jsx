@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 
 function HomePage(){
 
-    localStorage.setItem("USERNAME","")
+    localStorage.setItem("USERNAME",{})
     return(
         <>
            

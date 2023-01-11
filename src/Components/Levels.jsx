@@ -5,27 +5,27 @@ function Levels({num,userName}){
     if(num === "1.1")
     return(
         <div>
-            <Link to = {`/${userName}/firstMuseum`} >Back to levels</Link>
+            <Link to = {`/${userName.firstName}/firstMuseum`} >Back to levels</Link>
             <h1>1</h1>
             <h1>get question from data</h1>
             <h1>Answers</h1>
             <p>answer</p>
             <h1>Hint</h1>
-            <Link to = {`/${userName}/firstMuseum/secondLevel`}>Next Level</Link>
+            <Link to = {`/${userName.firstName}/firstMuseum/secondLevel`}>Next Level</Link>
             <p>Previous Level</p>
         </div>   
     )
     if(num === "1.2")
     return(
         <div>
-            <Link to = {`/${userName}/firstMuseum`} >Back to levels</Link>
+            <Link to = {`/${userName.firstName}/firstMuseum`} >Back to levels</Link>
             <h1>2</h1>  
             <h1>get question from data</h1>
             <h1>Answers</h1>
             <p>answer</p>
             <h1>Hint</h1>
-            <Link to = {`/${userName}/firstMuseum/thirdLevel`}>Next Level</Link><br />
-            <Link to = {`/${userName}/firstMuseum/firstLevel`}>Previous Level</Link>
+            <Link to = {`/${userName.firstName}/firstMuseum/thirdLevel`}>Next Level</Link><br />
+            <Link to = {`/${userName.firstName}/firstMuseum/firstLevel`}>Previous Level</Link>
         </div>   
     )
     if(num === "1.3")

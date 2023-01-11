@@ -32,6 +32,7 @@ function SignUp({setUserName}){
     const [reapedPass,setReapedPass] = useState("")
     const [isSignedUp,setIsSignedUp] = useState(false)
     const [typeOfField,setTypeOfField] = useState('password')
+    const [handler,setHandler] = useState(false)
   
     useEffect(()=>{
     })
@@ -71,6 +72,16 @@ function SignUp({setUserName}){
                 }
         })
         count++
+        }
+        if(handler){
+            setErrors(prev =>{
+                return{
+                    ...prev,
+                    email:{
+                        visibility:""
+                    }
+                }
+            })
         }
         if(password !== reapedPass){
             setErrors(prev=> {
@@ -140,7 +151,7 @@ function SignUp({setUserName}){
                     </div>
                     
                     <p  className = "submitButton" onClick = {()=>{
-                        signUp(email,password,firstName,lastName)
+                        signUp(email,password,firstName,lastName,setHandler)
                         handleClick()
                     }
                     }>Submit</p>

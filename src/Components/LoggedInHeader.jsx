@@ -6,7 +6,7 @@ function LoggedInHeader({userName}){
         <>
             <div className = "header" >
                 <img src="" alt="logo" />
-                <Link to = {`/${userName}/info`}>{userName}</Link>
+                <Link to = {`/${userName.firstName}/info`}>{userName.firstName}</Link>
             </div>
             <Outlet />
         </>
