@@ -1,15 +1,25 @@
 *{
     box-sizing: border-box;
 }
+body{
+    background: #18117A;
+    background: -webkit-linear-gradient(top, #18117A, #4C80E2);
+    background: -moz-linear-gradient(top, #18117A, #4C80E2);
+    background: linear-gradient(to bottom, #18117A, #4C80E2);
+    height: 100vh;
+}
 
 .SignInForm{
     display: flex;
     flex-direction: column;
     width:385px;
-    height: 250px;
+    height: 350px;
     justify-content: center;
-    margin-top:0%;
-    margin-left: 65%;
+    margin-top:13%;
+    margin-left: 35%;
+    border-radius: 15px;
+    background-color: azure;
+    
 
 }
 
@@ -132,3 +142,21 @@
     color:red;
 }
 
+@media screen and (max-width: 450px) {
+
+    *{
+        font-size: 18px;
+        margin-top:  0px;
+        margin-left: 0px; 
+    }   
+    .SignInForm{
+        margin-left: 4%;
+        margin-top: 35%;
+    }
+
+    .check{
+        height: 15px;
+        width: 15px;
+    }
+    
+}
