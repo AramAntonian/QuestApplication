@@ -1,8 +1,19 @@
 import {useEffect, useState } from 'react';
 import { Link } from "react-router-dom"
-import { Formik, Field, Form } from 'formik';
 import "../style/SignInPage.css"
 import { signInWith, signInWithGoogle } from '../FireBase'
+import Avatar from '@mui/material/Avatar';
+import Button from '@mui/material/Button';
+import CssBaseline from '@mui/material/CssBaseline';
+import TextField from '@mui/material/TextField';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import Checkbox from '@mui/material/Checkbox';
+import Grid from '@mui/material/Grid';
+import Box from '@mui/material/Box';
+import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
+import Typography from '@mui/material/Typography';
+import Container from '@mui/material/Container';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 
 function SignIn({userName,setUserName}){
@@ -16,7 +27,7 @@ function SignIn({userName,setUserName}){
     useEffect(()=>{
         localStorage.setItem("USERNAME","")
     },[])
-    
+    const theme = createTheme();
 
     
 
@@ -30,35 +41,123 @@ function SignIn({userName,setUserName}){
             </div>:null
         }
             <Link to = "/"  className='backDrop'>{"<"}</Link>
-            <Formik >
-                <Form className='SignInForm'>
-                   {
-                    errors?<div className = "error">invalid email or password</div>:null
-                   }
-                    <Field name="email" type="email" placeholder = "email" className = "inputFields" value = {email} onChange = {(event)=>setEmail(event.target.value)}/>            
-                    <Field name="password" type={typeOfField}  placeholder = "password" 
-                    className = "inputFields" value = {password} onChange = {(event)=>setPassword(event.target.value)}/>
-                    <div className='showPassword'>
-                        <input type = "checkbox"  className='check'onClick = {()=> setTypeOfField(prev => prev === "password"?"text":"password")}/>
-                        <p className='showText'>show password</p>
-                    </div>
-                 <p className='submitButton' onClick = {async ()=> {
-                    signInWith(email,password,setIsSignedUp,setUserName,setErrors,"signIn")
-                    setPassword("")
-                    }}>Submit</p>
-                 
-                    
-                    <div className = "SignUp-Forget ">
-                        <Link to = {`/signIn/forgetPassword`} className = "forget-signup"  >Forget Password?</Link><br />
-                        <Link to = "/signUp" className='forget-signup'>Sign up</Link> 
-                    </div>
-                    <div className='googleSignIn'onClick = {() => signInWithGoogle(setUserName,setIsSignedUp,email,password)}>
-                        <img className = "google" src = "https://tse4.mm.bing.net/th?id=OIP.HgH-NjiOdFOrkmwjsZCCfAHaHl&pid=Api&P=0" alt = "google"/>
-                        <p className='googleText'>sign in with google</p>
-                    </div>
-                </Form>
+            <ThemeProvider theme={theme}>
+      <Container component="main" maxWidth="xs">
+        <CssBaseline />
+        <Box
+          sx={{
+            marginTop: 8,
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+          }}
+        >
+          <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+            <LockOutlinedIcon />
+          </Avatar>
+          <Typography component="h1" variant="h5">
+            Sign in
+          </Typography>
+          <Box component="form" noValidate sx={{ mt: 1 }}>
+            {!errors?
+            <>
+              <TextField
+                margin="normal"
+                required
+                fullWidth
+                id="email"
+                label="Email Address"
+                name="email"
+                autoComplete="email"
+                autoFocus
+                value = {email} 
+                onChange = {(event)=>setEmail(event.target.value)}
+              />
+              <TextField
+                margin="normal"
+                required
+                fullWidth
+                name="password"
+                label="Password"
+                id="password"
+                autoComplete="current-password"
+                type={typeOfField}
+                value = {password} onChange = {(event)=>setPassword(event.target.value)}
+              />
+            </>
+            :
+            <>
+            <TextField
+              error
+              helperText = "invalid email"
+              margin="normal"
+              required
+              fullWidth
+              id="email"
+              label="Email Address"
+              name="email"
+              autoComplete="email"
+              autoFocus
+              value = {email} 
+              onChange = {(event)=>setEmail(event.target.value)}
+            />
+            <TextField
+              error
+              helperText = "invalid password"
+              margin="normal"
+              required
+              fullWidth
+              name="password"
+              label="Password"
+              id="password"
+              autoComplete="current-password"
+              type={typeOfField}
+              value = {password} onChange = {(event)=>setPassword(event.target.value)}
+            />
+          </>
 
-            </Formik > 
+            }
+            <Grid item xs={12}>
+                <FormControlLabel
+                  onClick = {()=> setTypeOfField(prev => prev === "password"?"text":"password")}
+                  control={<Checkbox value="allowExtraEmails" color="primary"  />}
+                  label="show Password"
+                />
+            </Grid>
+            <Button
+              fullWidth
+              variant="contained"
+              sx={{ mt: 3, mb: 2 }}
+              onClick= {
+                ()=> {
+                   signInWith(email,password,setIsSignedUp,setUserName,setErrors)
+               }
+               }
+            >
+              Sign In
+            </Button>
+            <Grid container>
+              <Grid item xs>
+                <Link to="/signIn/forgetPassword" variant="body2">
+                  Forgot password?
+                </Link>
+              </Grid>
+              <Grid item>
+                <Link to="/signUp" variant="body2">
+                  {"Don't have an account? Sign Up"}
+                </Link>
+              </Grid>
+            </Grid>
+          </Box>
+        </Box>
+        <div className='googleSignIn'onClick = {() => signInWithGoogle(setUserName,setIsSignedUp)}>
+            <img className = "google" src = "https://tse4.mm.bing.net/th?id=OIP.HgH-NjiOdFOrkmwjsZCCfAHaHl&pid=Api&P=0" alt = "google"/>
+            <p className='googleText'>sign in with google</p>
+        </div>
+      </Container>
+    </ThemeProvider>
+            
+            
             
 
             

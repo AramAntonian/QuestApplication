@@ -24,13 +24,15 @@ function App() {
     firstName:"",
     lastName:"",
   })
-
   useEffect(()=>{
-    setUserName(localStorage.getItem('USERNAME'))
-  },[])
-  useEffect(()=>{
-    localStorage.setItem('USERNAME',userName)
+    const user = JSON.stringify(userName)
+    localStorage.setItem('USERNAME',user)
   },[userName])
+  useEffect(()=>{
+    const user = localStorage.getItem('USERNAME')
+    setUserName(JSON.parse(user))
+  },[])
+ 
 
   return (
     <>

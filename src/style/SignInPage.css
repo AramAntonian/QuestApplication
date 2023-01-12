@@ -1,13 +1,7 @@
 *{
     box-sizing: border-box;
 }
-body{
-    background: #18117A;
-    background: -webkit-linear-gradient(top, #18117A, #4C80E2);
-    background: -moz-linear-gradient(top, #18117A, #4C80E2);
-    background: linear-gradient(to bottom, #18117A, #4C80E2);
-    height: 100vh;
-}
+
 
 .SignInForm{
     display: flex;
@@ -63,8 +57,6 @@ body{
 .showPassword{
     display: flex;
     flex-direction: row;
-    padding-left: 70px;
-    padding-top: 10px;
 }
 .google{
     width:30px;
@@ -73,12 +65,12 @@ body{
 .googleSignIn{
     display: flex;
     flex-direction: row;
-    width: 200px;
+    width: 210px;
     border-radius: 30px;
     border: 1px solid black;
     padding: 6px;
     margin-left: 90px;
-    margin-top: 30px;
+    margin-top: 40px;
     cursor: pointer;
 
 }
@@ -135,12 +127,7 @@ body{
     color:blue
 }
 
-.error{
-    position: absolute;
-    top:10px;
-    left:1110px;
-    color:red;
-}
+
 
 @media screen and (max-width: 450px) {
 

@@ -84,40 +84,36 @@ async function signInWithGoogle(setUserName,setIsSignedUp){
 
 
 
- function signInWith(email,password,setHandler,setUserName,setErrors,type){
+ function signInWith(email,password,setHandler,setUserName,setErrors){
     signInWithEmailAndPassword(auth, email, password)
     .then(async () => {
-        if(email.length && password.length && type === "signIn"){
+        if(email.length && password.length ){
             const userRef = collection(data,'users')
             const data1 = await getDocs(userRef)
             const users  = data1.docs.map(el=>({...el.data()}))
-            setUserName(
-                {
-                    ...users.filter(el => el.email === email)[0]
+            setUserName(prev =>
+                {    
+                    prev = {...users.filter(el => el.email === email)[0]}
+                    const user = JSON.stringify(prev)
+                    localStorage.setItem("USERNAME",user)
+                    return prev;      
+                    
                 }
             )
-            setHandler(true)        
+            setHandler(true)  
         }
-        else{
-            setHandler(true)    
-        }
-            
+      
     })
-    .catch((error) => {
+    .catch(() => {
         setErrors(true)
-        setTimeout(()=> setErrors(false),5000)
-        alert(error.message)
-       
+        setTimeout(()=> setErrors(false),10000)
     })
 }
-function signUp(email,password,firstName,lastName,setHandler){
+function signUp(email,password,firstName,lastName,setIsSignedUp){
     createUserWithEmailAndPassword(auth, email, password)
     .then(async () => { 
         const userRef = collection(data,'users')
-        const data1 = await getDocs(userRef)
-        if(!data1.filter(el => el.email === email)[0])
-
-            addDoc(userRef,{
+        addDoc(userRef,{
                 firstName:firstName,
                 lastName:lastName,
                 email:email,
@@ -153,14 +149,14 @@ function signUp(email,password,firstName,lastName,setHandler){
                         lvl5:false,
                     }
                 }
-            })
-            else{
-                setHandler(true);
-            }
+        })
+        setIsSignedUp(true)
+          
     
   })
-  .catch((error) => {
-    alert(error.code,error.message)
+  .catch(async(error) => {
+    await setIsSignedUp(false)
+    alert(error.code)
   });
 
 }

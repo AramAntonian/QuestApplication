@@ -14,6 +14,14 @@
     background-color: azure;
 
 }
+.animate__backInDown{
+    animation: bounce;
+    animation-duration: 1s;
+    color:blue;
+    margin-bottom: 20px;
+    font-size: 26px;
+}
+
 
 
 .errors-fields{
@@ -22,7 +30,8 @@
     align-items: center;
     justify-content: center;
     height: 60px;
-    color: red;
+    color: grey;
+    opacity: 0.8;
 
 }
 .welcome{
@@ -32,8 +41,12 @@
     padding-top: 400px;
     padding-left: 700px;
     position: absolute;
-    background-color: white;
-
+    background-color: black;
+}
+.beckTo{
+    color:white;
+    text-decoration: none;
+    margin-left: 15px;
 }
 
 .backDrop{

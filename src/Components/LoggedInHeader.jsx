@@ -1,7 +1,6 @@
 import { Outlet, Link } from "react-router-dom"
 
 function LoggedInHeader({userName}){
-
     return(
         <>
             <div className = "header" >

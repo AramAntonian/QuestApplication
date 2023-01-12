@@ -8,7 +8,7 @@ function UserInfo({userName}){
             <p>points</p>
             <p>some info</p>
             <Link to = "/">sign out</Link><br />
-            <Link to = {`/${userName}/changePassword`}>Change password</Link>
+            <Link to = {`/${userName.firstName}/changePassword`}>Change password</Link>
         </div>
 
     )
