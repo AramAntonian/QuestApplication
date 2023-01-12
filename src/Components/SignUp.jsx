@@ -14,6 +14,7 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import tickIcon from "../tickIcon.png"
 
 
 function SignUp(){
@@ -34,8 +35,11 @@ function SignUp(){
         <>
         {
             isSignedUp?<div className="welcome">
-                <p className="animate__backInDown">successfully</p>
-                <Link to = "/signIn" className="beckTo">back to sign in</Link>
+                <img src = {tickIcon} alt = "tick icon" className='animate__fadeIn'/>
+                <p className="animate__bounceInDown">successfully</p>
+                <div  className="animate__bounceInRight">
+                  <Link to = "/signIn" className="backTo">back to sign in</Link>
+                </div>
             </div>:null
         }
 

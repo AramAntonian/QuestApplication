@@ -1,6 +1,7 @@
 import {useEffect, useState } from 'react';
 import { Link } from "react-router-dom"
 import "../style/SignInPage.css"
+import "animate.css"
 import { signInWith, signInWithGoogle } from '../FireBase'
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
@@ -14,6 +15,7 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import tickIcon from "../tickIcon.png"
 
 
 function SignIn({userName,setUserName}){
@@ -36,8 +38,11 @@ function SignIn({userName,setUserName}){
         <>
            {
             isSignedUp?<div className="welcome">
-                <p>successfully</p>
-                <Link to = {`/${userName.firstName}`} className="beckTo">go to page</Link>
+                <img src = {tickIcon} alt = "tick icon" className='animate__fadeIn'/>
+                <p className = "animate__bounceInLeft">successfully</p>
+                <div className = "animate__bounceInRight">
+                  <Link to = {`/${userName.firstName}`} className = "goTo">go to page</Link>
+                </div>
             </div>:null
         }
             <Link to = "/"  className='backDrop'>{"<"}</Link>
