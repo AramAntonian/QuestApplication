@@ -5,7 +5,7 @@ function HomePage(){
 
     return(
         <>
-           
+
             <h1>Lorem ipsum dolor sit.</h1>
             <Link to = "/firstMuseum"><img  src = "" alt = "1st museum"/></Link>
             <Link to = "/secondMuseum"><img  src = "" alt = "2nd museum"/></Link>

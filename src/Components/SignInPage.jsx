@@ -31,7 +31,7 @@ function SignIn({userName,setUserName}){
     },[])
     const theme = createTheme();
 
-    
+   
 
  
     return(
@@ -41,7 +41,7 @@ function SignIn({userName,setUserName}){
                 <img src = {tickIcon} alt = "tick icon" className='animate__fadeIn'/>
                 <p className = "animate__bounceInLeft">successfully</p>
                 <div className = "animate__bounceInRight">
-                  <Link to = {`/${userName.firstName}`} className = "goTo">go to page</Link>
+                  <Link to = {`/${userName.firstName}`} className = "goTo" >go to page</Link>
                 </div>
             </div>:null
         }

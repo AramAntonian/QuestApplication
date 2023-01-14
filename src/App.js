@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import {  Route, Routes } from "react-router-dom";
 import Header from "./Components/Header";
 import HomePage from "./Components/HomePage";
 import FirstMuseum from "./Components/Museums/FirstMuseum";
@@ -24,21 +24,29 @@ function App() {
     firstName:"",
     lastName:"",
   })
+
   useEffect(()=>{
-    const user = localStorage.getItem('USERNAME')
-    setUserName(JSON.parse(user))
+    let user = localStorage.getItem("USERNAME")
+    if(user){
+      user = JSON.parse(user) 
+      setUserName(user)
+    }
   },[])
   useEffect(()=>{
-    const user = JSON.stringify(userName)
-    localStorage.setItem('USERNAME',user)
+    if(userName.firstName){
+      const user = JSON.stringify(userName)
+      localStorage.setItem("USERNAME",user)
+    }
   },[userName])
+
+ 
   
  
 
   return (
     <>
         <Routes>
-          <Route path = "/" element = {<Header />}>
+          <Route path = "/" element = {<Header  />}>
             <Route index element = {<HomePage />}/>
             <Route path = "/firstMuseum" element = {<FirstMuseum />}/>
             <Route path = "/secondMuseum" element = {<SecondMuseum />}/>
