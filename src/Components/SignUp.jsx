@@ -116,9 +116,9 @@ function SignUp(){
                   required
                   fullWidth
                   name="password"
-                  label="repeat password"
+                  label="Repeat password"
                   type={typeOfField}
-                  id="password"
+                  id="repPassword"
                   autoComplete="new-password"
                   value = {reapedPass} onChange = {(event)=>setReapedPass(event.target.value)}
 
@@ -188,10 +188,10 @@ function SignUp(){
                   required
                   fullWidth
                   name="password"
-                  label="repeat password"
+                  label="Repeat password"
                   type={typeOfField}
                   helperText = "must be same password"
-                  id="password"
+                  id="repPassword"
                   autoComplete="new-password"
                   value = {reapedPass} onChange = {(event)=>setReapedPass(event.target.value)}
 
@@ -222,7 +222,7 @@ function SignUp(){
                     }
                     else{
                       setErrors(true)
-                      setTimeout(()=>setErrors(false),5000)
+                      setTimeout(()=>setErrors(false),10000)
                     }
                    
                 }

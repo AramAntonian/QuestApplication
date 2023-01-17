@@ -16,6 +16,7 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import tickIcon from "../tickIcon.png"
+import { ArrowBackIosNew } from '@mui/icons-material';
 
 
 function SignIn({userName,setUserName}){
@@ -45,7 +46,7 @@ function SignIn({userName,setUserName}){
                 </div>
             </div>:null
         }
-            <Link to = "/"  className='backDrop'>{"<"}</Link>
+            <Link to = "/"  className='backDrop'>< ArrowBackIosNew fontSize='large' /></Link>
             <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs">
         <CssBaseline />

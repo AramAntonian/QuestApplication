@@ -1,6 +1,5 @@
 *{
     box-sizing: border-box;
-    overflow: hidden;
 }
 
 
@@ -35,4 +34,28 @@
     color:white;
     text-decoration: none;
     margin-left: -13px;
+}
+@media screen and (max-width: 1000px){
+    .welcome{
+        width:100%;
+        padding-top: 330px;
+        padding-left: 140px;
+    }
+    .animate__bounceInRight{
+        animation: bounceInRight;
+        animation-duration: 1s;
+        color:white;
+        text-decoration: none;
+        margin-left: 55px;
+    }
+    .animate__bounceInDown{
+        animation: bounceInLeft;
+        animation-duration: 1s;
+        margin-bottom: 20px;
+        margin-left: 0;
+    }
+    .backTo{
+        margin-left: -45px;
+        font-size: 18px;
+    }
 }

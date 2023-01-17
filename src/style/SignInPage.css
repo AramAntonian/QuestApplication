@@ -1,3 +1,6 @@
+*{
+    box-sizing: border-box;
+}
 
 .animate__bounceInRight{
     animation: backInRight;
@@ -43,9 +46,8 @@
 
 .welcome{
     margin-top: 0px;
-    width:100vw;
-    height: 100vh;
-    padding-top: 30%;
+    width:100%;
+    height: 100%;
 }
 
 .animate__fadeIn{
@@ -53,4 +55,29 @@
     animation-duration: 3s;
     width:200px;
     height: 200px;
+}
+
+.backDrop{
+    margin-left: 1%;
+}
+
+@media screen and (max-width: 500px){
+    .googleSignIn{
+        margin-bottom: 3px;
+        margin-left: 85px;
+    }
+
+    .animate__fadeIn{
+        width:150px;
+        height: 150px;
+        margin-left: -5px;
+    }
+
+    .animate__bounceInLeft{
+        margin-bottom: 10px;
+        margin-left: 0px;
+    }
+    .goTo{
+        margin-left:-25px;
+    }
 }
