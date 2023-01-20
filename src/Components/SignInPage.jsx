@@ -15,11 +15,12 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import tickIcon from "../tickIcon.png"
 import { ArrowBackIosNew } from '@mui/icons-material';
+import SmallWindows from './Question.jsx';
 
 
 function SignIn({userName,setUserName}){
+    window.onpopstate = ()=>{}
     const [errors,setErrors] = useState(false)
     const [email,setEmail] = useState("")
     const [password,setPassword] = useState("")
@@ -34,18 +35,10 @@ function SignIn({userName,setUserName}){
 
    
 
- 
+    if(!isSignedUp)
     return(
         <>
-           {
-            isSignedUp?<div className="welcome">
-                <img src = {tickIcon} alt = "tick icon" className='animate__fadeIn'/>
-                <p className = "animate__bounceInLeft">successfully</p>
-                <div className = "animate__bounceInRight">
-                  <Link to = {`/${userName.firstName}`} className = "goTo" >go to page</Link>
-                </div>
-            </div>:null
-        }
+        
             <Link to = "/"  className='backDrop'>< ArrowBackIosNew fontSize='large' /></Link>
             <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs">
@@ -169,6 +162,12 @@ function SignIn({userName,setUserName}){
             
         </>
     )
+    else{
+      return(
+       <SmallWindows type = "signIn" userName={userName}/>
+      )
+    
+    }
 }
 
 export default SignIn

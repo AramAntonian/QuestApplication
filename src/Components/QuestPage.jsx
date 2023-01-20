@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 
 function QuestPage({num,userName}){
+    window.onpopstate = ()=>{}
+
     if(num === "1"){
         return ( 
             <div>

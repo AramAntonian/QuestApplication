@@ -1,7 +1,6 @@
 import { initializeApp } from "firebase/app";
-import { collection, getFirestore,getDocs, addDoc } from "@firebase/firestore"
+import { collection, getFirestore,getDocs, addDoc ,updateDoc,doc} from "@firebase/firestore"
 import { createUserWithEmailAndPassword, getAuth,GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup} from 'firebase/auth'
-
 
 const firebaseConfig = {
     apiKey: "AIzaSyAsL7FRX_NV2MYFwJnDVGTcyJpsv8oLDUw",
@@ -20,6 +19,34 @@ const auth = getAuth(app)
 
 const provider = new GoogleAuthProvider()
 
+ async function ChangeInfo(firstName,lastName,id,setChanges,navigate){
+    const userRef = doc(data,"users",id)
+    console.log(userRef)
+    updateDoc(userRef,{
+        firstName:firstName,
+        lastName:lastName,
+    })
+
+    let user = localStorage.getItem("USERNAME")
+    user = JSON.parse(user)
+    user = {
+        ...user,
+        firstName:firstName,
+        lastName:lastName,
+    }
+    user = JSON.stringify(user)
+    localStorage.setItem("USERNAME",user)
+    await setChanges(prev =>(
+        {
+            ...prev,
+            displayName:false,
+        }
+    ))
+    await navigate(`/${firstName}`)
+    window.location.reload(true)
+
+}
+
 
 async function signInWithGoogle(setUserName,setIsSignedUp){
     signInWithPopup(auth,provider).then(async result =>{
@@ -27,7 +54,7 @@ async function signInWithGoogle(setUserName,setIsSignedUp){
         setIsSignedUp(true)
         const userRef = collection(data,"users")
         const data1 = await getDocs(userRef)
-        const users  = data1.docs.map(el=>({...el.data()}))
+        const users  = data1.docs.map(el=>({...el.data(),id:el.id}))
         if(!users.filter(el => el.email === user.email)[0])
             addDoc(userRef,{
                 firstName:user.displayName.split(" ")[0],
@@ -70,7 +97,8 @@ async function signInWithGoogle(setUserName,setIsSignedUp){
                 
                  setUserName(
                     {
-                        ...users.filter(el => el.email === user.email)[0]
+                        ...users.filter(el => el.email === user.email)[0],
+                        
                     }
                 )
                 
@@ -90,7 +118,7 @@ async function signInWithGoogle(setUserName,setIsSignedUp){
         if(email.length && password.length ){
             const userRef = collection(data,'users')
             const data1 = await getDocs(userRef)
-            const users  = data1.docs.map(el=>({...el.data()}))
+            const users  = data1.docs.map(el=>({...el.data(),id:data1.id}))
             setUserName(prev =>
                 {    
                     prev = {...users.filter(el => el.email === email)[0]}
@@ -164,4 +192,4 @@ function signUp(email,password,firstName,lastName,setIsSignedUp){
 
 
 
-export {data,signInWith,signUp,signInWithGoogle}
+export {data,signInWith,signUp,signInWithGoogle,ChangeInfo}

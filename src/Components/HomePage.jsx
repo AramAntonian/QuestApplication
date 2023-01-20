@@ -1,8 +1,12 @@
 import "../style/HomePage.css"
-import { Link } from "react-router-dom"
+import { Link,  useNavigate } from "react-router-dom"
 
-function HomePage(){
-
+function HomePage({userName}){
+    const navigate = useNavigate()
+    window.onpopstate = ()=>{
+            navigate(+1)
+    }
+ 
     return(
         <>
 

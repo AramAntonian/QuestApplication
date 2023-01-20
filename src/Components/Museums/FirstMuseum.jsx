@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom"
 
 function FirstMuseum(){
-
+    window.onpopstate = ()=>{}
     return(
         <>
             <div>Info</div>

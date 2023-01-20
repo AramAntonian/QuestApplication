@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom"
 
 function ThirdMuseum(){
+    window.onpopstate = ()=>{}
 
     return(
         <>
