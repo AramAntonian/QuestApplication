@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom"
+import { Link, Navigate } from "react-router-dom"
 import "../style/UserInfo.css"
 import logo from "../logo.png"
 import EditIcon from '@mui/icons-material/Edit';
@@ -16,6 +16,9 @@ function UserInfo({userName}){
     })
     function handleSingOut(){
         localStorage.removeItem("USERNAME")
+    }
+    if(!userName?.firstName){
+        return <Navigate to = "*" />
     }
 
         return(

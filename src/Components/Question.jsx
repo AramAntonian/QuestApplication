@@ -73,17 +73,19 @@ function Question({type,userName,setChanges}){
                         value = {lastName} onChange = {(event)=> setLastName(event.target.value)}
                         />
                     </div>
-                    <Button
-                    fullWidth
-                    variant="contained"
-                    sx={{ mt: 3, mb: 2 }}
-                    onClick = {()=>{
-                        if((firstName[0].toUpperCase() === firstName[0] || lastName.split("").filter(el => el.toUpperCase() === el).length < 1)
-                        &&(lastName[0].toUpperCase() === lastName[0] || lastName.split("").filter(el => el.toUpperCase() === el).length < 1)){
-                            ChangeInfo(firstName,lastName,userName.id,setChanges,navigate)
-                        }
-                    }}
-                    >Confirm Changes</Button>
+                    <div className="confirm">
+                        <Button
+                        fullWidth
+                        variant="contained"
+                        sx={{ mt: 3, mb: 2 }}
+                        onClick = {()=>{
+                            if((firstName[0].toUpperCase() === firstName[0] || lastName.split("").filter(el => el.toUpperCase() === el).length < 1)
+                            &&(lastName[0].toUpperCase() === lastName[0] || lastName.split("").filter(el => el.toUpperCase() === el).length < 1)){
+                                ChangeInfo(firstName,lastName,userName.id,setChanges,navigate)
+                            }
+                        }}
+                        >Confirm Changes</Button>
+                    </div>
                 </div>
             </>
         )

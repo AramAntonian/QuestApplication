@@ -1,7 +1,3 @@
-body{
-    background-color: black;
-}
-
 .cont{
     background-color: grey;
     opacity: 0.6;
@@ -38,4 +34,17 @@ body{
 .close{
     margin-left: 97%;
     cursor: pointer;
+}
+@media screen and (max-width: 500px){
+    .window{
+        width:55%;
+        height: 50%;
+        left:20%;
+    }
+    .lastName{
+        margin-top: 25px;
+    }
+    .confirm{
+        margin-top: 50px;
+    }
 }
