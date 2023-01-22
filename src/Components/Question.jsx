@@ -8,11 +8,10 @@ import { ChangeInfo } from "../FireBase"
 
 
 function Question({type,userName,setChanges}){
-    const [firstName,setFirstName] = useState(userName.firstName)
-    const[lastName,setLastName] = useState(userName.lastName)
+    const [firstName,setFirstName] = useState(userName?.firstName)
+    const[lastName,setLastName] = useState(userName?.lastName)
     const navigate = useNavigate()
 
-    console.log(userName)
  
     if(type === "signIn"){
         return(
@@ -90,6 +89,7 @@ function Question({type,userName,setChanges}){
             </>
         )
     }
+  
 }
 
 export default Question

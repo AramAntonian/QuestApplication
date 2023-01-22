@@ -7,6 +7,7 @@ import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
 import Question from "./Question";
 import { useState } from "react";
 import EditOffIcon from '@mui/icons-material/EditOff';
+import { sendCode } from "../FireBase";
 
 function UserInfo({userName}){
     window.onpopstate = ()=>{}
@@ -47,7 +48,9 @@ function UserInfo({userName}){
                     </div >
                     {userName.password?<div className = "icon-field">
                         <input type = "text"  className = "infoFields" value = "password" readOnly = {true}/>
-                        <Link to = {`/${userName.firstName}/changePassword`}><EditIcon  className="editIcon"/></Link>
+                        <EditIcon  className="editIcon" onClick = {async ()=>{
+                            sendCode(false,userName.email,)
+                        }}/>
 
                     </div>:null}
                     <div style={{display:"flex",flexDirection:"row",paddingTop:"430px"}}>

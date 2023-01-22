@@ -14,8 +14,7 @@ import QuestPage from "./Components/QuestPage";
 import Levels from "./Components/Levels";
 import UserInfo from "./Components/UserInfo";
 import PasswordChange from "./Components/PasswordChanging";
-import VerifyCode from "./Components/VerifyCode";
-import NewPassword from "./Components/NewPassword";
+import Changed from "./Components/Changed";
 import NotFound from "./Components/NotFound";
 
 
@@ -85,11 +84,8 @@ function App() {
           </Route>
           <Route path = {`/${userName.firstName}/info`} element = {<UserInfo userName = {userName}/>} />
           <Route path = {`/${userName.firstName}/changePassword`} element = {<PasswordChange   userName = {userName} isSignedIn = {true}/>} />
-          <Route path = {`/${userName.firstName}/verifyCode`} element = {<VerifyCode userName={ userName } isSignedIn  = {true}/>} />
-          <Route path = {`/${userName.firstName}/newPassword`}  element = {<NewPassword userName={ userName } isSignedIn = {true} />}/>
-          <Route path = "/signIn/forgetPassword" element = {<PasswordChange /> } />
-          <Route path = "/signIn/verifyCode" element = {<VerifyCode />} />
-          <Route path = "/signIn/newPassword" element = {<NewPassword />} />
+          <Route path = "signIn/forgetPassword" element = {<PasswordChange />}/>
+          <Route path = "/signIn/changed" element = {<Changed />} />
           <Route path = "*" element = {<NotFound />}/>
         </Routes>
         

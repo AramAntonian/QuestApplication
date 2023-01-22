@@ -1,21 +1,43 @@
-import { Link } from "react-router-dom"
+import { ArrowBackIosNew } from "@mui/icons-material"
+import { Button, TextField } from "@mui/material"
+import { useState } from "react"
+import { Link, useNavigate } from "react-router-dom"
+import { sendCode } from "../FireBase"
+import "../style/PasswordChanging.css"
 
-function PasswordChange({userName = {},isSignedIn = false}){
+function PasswordChange(){
+    const [email,setEmail] = useState("")
+    const navigate = useNavigate()
 
-    if(isSignedIn)
         return(
             <>
-                <div>Filed for email</div>
-                <Link to = {`/${userName.firstName}/verifyCode`}>send code If email is right</Link>
+            <Link to = "/signIn"  className='backDrop'>< ArrowBackIosNew fontSize='large' /></Link>
+
+                <div className= "container">
+                    <TextField
+                        margin="normal"
+                        required
+                        fullWidth
+                        id="email"
+                        label="Email Address"
+                        name="email"
+                        autoComplete="email"
+                        autoFocus
+                        value = {email} 
+                        onChange = {(event)=>setEmail(event.target.value)}
+                    />  
+                    <Button
+                    fullWidth
+                    variant="contained"
+                    sx={{ mt: 3, mb: 2 }}
+                    onClick = {()=>{
+                        sendCode(navigate,email)
+                    }
+                    }
+                    >Send Code</Button>
+                </div>
             </>
         )
-    else{
-        return(
-            <>
-                <div>Field for email</div>
-                <Link to = "/signIn/verifyCode">submit if email is exist</Link>
-            </>
-        )
-    }    
+       
 }
 export default PasswordChange

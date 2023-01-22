@@ -66,6 +66,9 @@
         margin-bottom: 3px;
         margin-left: 85px;
     }
+    .googleText{
+        font-size: 16px;
+    }
 
     .animate__fadeIn{
         width:150px;

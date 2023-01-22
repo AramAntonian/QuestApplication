@@ -1,6 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { collection, getFirestore,getDocs, addDoc ,updateDoc,doc} from "@firebase/firestore"
-import { createUserWithEmailAndPassword, getAuth,GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup} from 'firebase/auth'
+import { createUserWithEmailAndPassword, getAuth,GoogleAuthProvider, sendPasswordResetEmail, signInWithEmailAndPassword, signInWithPopup} from 'firebase/auth'
 
 const firebaseConfig = {
     apiKey: "AIzaSyAsL7FRX_NV2MYFwJnDVGTcyJpsv8oLDUw",
@@ -145,7 +145,7 @@ function signUp(email,password,firstName,lastName,setIsSignedUp){
                 firstName:firstName,
                 lastName:lastName,
                 email:email,
-                password:password,
+                password:Math.random(),
                 points:0,
                 Levels:{
                     firstMuseum:{
@@ -190,6 +190,15 @@ function signUp(email,password,firstName,lastName,setIsSignedUp){
 }
 
 
+function sendCode(navigate,email){
+    sendPasswordResetEmail(auth,email).then(()=>{
+        navigate?navigate("/signIn/changed"):alert("message has been send, check your email")
+        
+    }).catch((error)=>{
+        alert(error)
+    })
+}
 
 
-export {data,signInWith,signUp,signInWithGoogle,ChangeInfo}
+
+export {data,signInWith,signUp,signInWithGoogle,ChangeInfo,sendCode}
