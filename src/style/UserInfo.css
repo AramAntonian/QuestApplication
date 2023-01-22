@@ -1,0 +1,105 @@
+.points{
+    z-index: 4;
+    order:2;
+    color: blue;
+    margin-left:650px;
+    margin-top: 20px;
+}
+
+.editIcon{
+    margin-top: 1%;
+    cursor: pointer;
+    color: black;
+
+}
+.userInfoLogo{
+    width:400px;
+    height:400px;
+    order: 3;
+    margin-top: -50px;
+}
+
+.signOut{
+    z-index: 4;
+    text-decoration: none;
+    font-size: 26px;
+    color: white;
+    order:2;
+}
+
+.infoFields{
+    border:0px;
+    font-size: 26px;
+    background:none;
+    margin-top: 40px;
+}
+.info{
+    display: flex;
+    flex-direction: column;
+    order:1;
+    z-index:4;
+    margin-left: 20px;
+}
+.userInfo{
+    background-color:rgb(4, 4, 4);
+    display: flex;
+    flex-direction: row;
+    width:100vw;
+    height: 100vh;
+}
+.blueDiv{
+    position: absolute;
+    top: 0;
+    left:0;
+    width:30%;
+    height: 100%;
+    z-index: 3;
+    background-color: blue;
+    border-right: 5px dashed rgb(4, 4, 4) ;
+}
+
+.icon-fields{
+    display: flex;
+    flex-direction: row;
+}
+
+.back{
+    z-index: 4;
+    color:white;
+    text-decoration: none;
+    font-size: 25px;
+    order:2
+}
+
+@media screen and (max-width: 500px){
+  
+    .blueDiv{
+        width:45%;
+        height: 100%;
+        border-right: 4px dashed rgb(4, 4, 4) ;
+    }
+    .userInfoLogo{
+        width:200px;
+        height:200px;
+        order: 3;
+        margin-left: -40px;
+        margin-top: 50px;
+    }
+    .infoFields{
+        border:0px;
+        font-size: 16px;
+        margin-top: 40px;
+    }
+    .info{
+        margin-left: 10px;
+    }
+    .points{
+        margin-left:-5px;
+        font-size: 16px;
+    }
+    
+    .back{
+        font-size: 18px;
+        margin-top: 5px;
+    }
+}

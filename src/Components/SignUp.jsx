@@ -14,7 +14,7 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import tickIcon from "../tickIcon.png"
+import Question from "./Question";
 
 
 function SignUp(){
@@ -30,18 +30,10 @@ function SignUp(){
     const theme = createTheme()
   
   
-
+    if(!isSignedUp)
     return(
         <>
-        {
-            isSignedUp?<div className="welcome">
-                <img src = {tickIcon} alt = "tick icon" className='animate__fadeIn'/>
-                <p className="animate__bounceInDown">successfully</p>
-                <div  className="animate__bounceInRight">
-                  <Link to = "/signIn" className="backTo">back to sign in</Link>
-                </div>
-            </div>:null
-        }
+     
 
          <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs">
@@ -176,7 +168,7 @@ function SignUp(){
                   label="Password"
                   type={typeOfField}
                   id="password"
-                  helperText = "more then 8 characters"
+                  helperText = " 8 or more characters"
                   autoComplete="new-password"
                   value = {password} onChange = {(event)=> setPassword(event.target.value)}
 
@@ -245,6 +237,12 @@ function SignUp(){
         
     </>
     )
+    else{
+      return(
+       <Question type = "signUp" />
+      
+      )
+    }
 }
 
 export default SignUp

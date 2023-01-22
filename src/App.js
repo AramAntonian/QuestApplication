@@ -16,6 +16,7 @@ import UserInfo from "./Components/UserInfo";
 import PasswordChange from "./Components/PasswordChanging";
 import VerifyCode from "./Components/VerifyCode";
 import NewPassword from "./Components/NewPassword";
+import NotFound from "./Components/NotFound";
 
 
 
@@ -89,7 +90,9 @@ function App() {
           <Route path = "/signIn/forgetPassword" element = {<PasswordChange /> } />
           <Route path = "/signIn/verifyCode" element = {<VerifyCode />} />
           <Route path = "/signIn/newPassword" element = {<NewPassword />} />
+          <Route path = "*" element = {<NotFound />}/>
         </Routes>
+        
     </>
   );
 }
