@@ -1,7 +1,7 @@
 function NotFound() {
   window.onpopstate = () => {};
   const notFound = {
-    "text-align": "center",
+    textAlign: "center",
     color: "red",
   };
   return <h1 style={notFound}>This page was not found</h1>;
