@@ -1,0 +1,28 @@
+*{
+    margin:0; 
+    box-sizing: border-box;
+}
+
+
+.header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px;  
+    border:1px solid black;
+    width: 100%;
+    background-color: black;
+    color: blue;
+    border-bottom: 1px solid blue;
+     
+}
+.headerLogo{
+    width: 40px;
+    height: 40px;
+}
+.SignInBoo{
+    padding-top: 10px;
+    padding-right: 10px;
+    cursor: pointer;
+}
+

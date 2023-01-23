@@ -1,0 +1,20 @@
+
+.information{
+    color:blue;
+    margin-left: 30px;
+    margin-right: 30px;
+    text-align: justify;
+}
+.infoImg{
+    margin-top: 20px;
+    margin-left: 600px;
+    width:300px;
+    height: 300px;
+}
+
+@media screen and (max-width: 500px){
+    .infoImg{
+        margin-top: 20px;
+        margin-left: 60px;
+    }
+}
