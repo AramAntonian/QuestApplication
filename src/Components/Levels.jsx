@@ -1,27 +1,46 @@
+import { TextField, Button } from "@mui/material";
 import React from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import "../style/Levels.css";
 
 function Levels({ num, userName }) {
+  const [latitude,setLatitude] = useState
+  const [longitude,setLongitude] = useState
+
   navigator.geolocation.getCurrentPosition(showPosition);
   function showPosition(position) {
-    console.log(position.coords.latitude);
-    console.log(position.coords.longitude);
+    setLatitude(position.coords.latitude);
+    setLongitude(position.coords.longitude);
   }
+  // const [answr,setAnswr] = useState 
+console.log(latitude,longitude)
+
+//  const handleInput = event =>{
+//   setAnswr(event.target.value)
+//  }
 
   if (num === "1.1")
     return (
-      <div>
-        <Link to={`/${userName.firstName}/firstMuseum`}>Back to levels</Link>
+      <div id="question">
+        <button>
+          <Link to={`/${userName}/forthMuseum`}>Back to levels</Link>
+        </button>
         <h1>1</h1>
-        <h1>get question from data</h1>
-        <h1>Answers</h1>
-        <p>answer</p>
-        <h1>Hint</h1>
-        <Link to={`/${userName.firstName}/firstMuseum/secondLevel`}>
-          Next Level
-        </Link>
-        <p>Previous Level</p>
+        <h2>When was the Yeghishe Charents House-Museum founded?</h2>
+        <form>
+        <TextField id="outlined-basic" label="Answer" variant="outlined" />
+        <br />
+        <Button type="submit" variant="contained" color="inherit">
+          Submit answer
+        </Button>
+        </form>
+        <br />
+        {/* <p>1964</p> */}
+        {/* <h1>Hint</h1> */}
+        <button>
+          <Link to={`/${userName}/forthMuseum/secondLevel`}>Next Level</Link>
+        </button>
       </div>
     );
   if (num === "1.2")
@@ -224,15 +243,19 @@ function Levels({ num, userName }) {
     );
   if (num === "4.1")
     return (
-      <div>
-        <Link to={`/${userName}/forthMuseum`}>Back to levels</Link>
+      <div id="question">
+        <button>
+          <Link to={`/${userName}/forthMuseum`}>Back to levels</Link>
+        </button>
         <h1>1</h1>
-        <h1>get question from data</h1>
-        <h1>Answers</h1>
-        <p>answer</p>
-        <h1>Hint</h1>
-        <Link to={`/${userName}/forthMuseum/secondLevel`}>Next Level</Link>
-        <p>Previous Level</p>
+        <h2>When was the Toumanyan House-Museum founded?</h2>
+        <TextField id="outlined-basic" label="Answer" variant="outlined" />
+        <br />
+        {/* <p>1964</p> */}
+        {/* <h1>Hint</h1> */}
+        <button>
+          <Link to={`/${userName}/forthMuseum/secondLevel`}>Next Level</Link>
+        </button>
       </div>
     );
   if (num === "4.2")
