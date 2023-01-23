@@ -9,7 +9,7 @@ function QuestPage({ num, userName }) {
           <button>Back to Museums</button>{" "}
         </Link>
         <br />
-        <Link to={`/${userName.firstName}/firstMuseum/firstLevel`}>
+        <Link to={`/${userName.firstName}/CharentsMuseum/firstLevel`}>
           <button
             style={{
               "background-color": userName.Levels.firstMuseum.lvl1
@@ -21,7 +21,7 @@ function QuestPage({ num, userName }) {
           </button>
         </Link>
         <br />
-        <Link to={`/${userName.firstName}/firstMuseum/secondLevel`}>
+        <Link to={`/${userName.firstName}/CharentsMuseum/secondLevel`}>
           <button
             style={{
               "background-color": userName.Levels.firstMuseum.lvl2
@@ -33,7 +33,7 @@ function QuestPage({ num, userName }) {
           </button>
         </Link>
         <br />
-        <Link to={`/${userName.firstName}/firstMuseum/thirdLevel`}>
+        <Link to={`/${userName.firstName}/CharentsMuseum/thirdLevel`}>
           <button
             style={{
               "background-color": userName.Levels.firstMuseum.lvl3
@@ -45,7 +45,7 @@ function QuestPage({ num, userName }) {
           </button>
         </Link>
         <br />
-        <Link to={`/${userName.firstName}/firstMuseum/forthLevel`}>
+        <Link to={`/${userName.firstName}/CharentsMuseum/forthLevel`}>
           <button
             style={{
               "background-color": userName.Levels.firstMuseum.lvl4
@@ -57,7 +57,7 @@ function QuestPage({ num, userName }) {
           </button>
         </Link>
         <br />
-        <Link to={`/${userName.firstName}/firstMuseum/fifthLevel`}>
+        <Link to={`/${userName.firstName}/CharentsMuseum/fifthLevel`}>
           <button
             style={{
               "background-color": userName.Levels.firstMuseum.lvl5
@@ -78,7 +78,7 @@ function QuestPage({ num, userName }) {
           <button>Back to Museums</button>{" "}
         </Link>
         <br />
-        <Link to={`/${userName.firstName}/z/firstLevel`}>
+        <Link to={`/${userName.firstName}/TumanyanMuseum/firstLevel`}>
           <button
             style={{
               "background-color": userName.Levels.secondMuseum.lvl1
@@ -90,7 +90,7 @@ function QuestPage({ num, userName }) {
           </button>
         </Link>
         <br />
-        <Link to={`/${userName.firstName}/secondMuseum/secondLevel`}>
+        <Link to={`/${userName.firstName}/TumanyanMuseum/secondLevel`}>
           <button
             style={{
               "background-color": userName.Levels.secondMuseum.lvl2
@@ -102,7 +102,7 @@ function QuestPage({ num, userName }) {
           </button>
         </Link>
         <br />
-        <Link to={`/${userName.firstName}/secondMuseum/thirdLevel`}>
+        <Link to={`/${userName.firstName}/TumanyanMuseum/thirdLevel`}>
           <button
             style={{
               "background-color": userName.Levels.secondMuseum.lvl3
@@ -114,7 +114,7 @@ function QuestPage({ num, userName }) {
           </button>
         </Link>
         <br />
-        <Link to={`/${userName.firstName}/secondMuseum/forthLevel`}>
+        <Link to={`/${userName.firstName}/TumanyanMuseum/forthLevel`}>
           <button
             style={{
               "background-color": userName.Levels.secondMuseum.lvl4
@@ -126,7 +126,7 @@ function QuestPage({ num, userName }) {
           </button>
         </Link>
         <br />
-        <Link to={`/${userName.firstName}/secondMuseum/fifthLevel`}>
+        <Link to={`/${userName.firstName}/TumanyanMuseum/fifthLevel`}>
           <button
             style={{
               "background-color": userName.Levels.secondMuseum.lvl5
@@ -147,7 +147,7 @@ function QuestPage({ num, userName }) {
           <button>Back to Museums</button>{" "}
         </Link>
         <br />
-        <Link to={`/${userName.firstName}/thirdMuseum/firstLevel`}>
+        <Link to={`/${userName.firstName}/IsahakyanMuseum/firstLevel`}>
           <button
             style={{
               "background-color": userName.Levels.thirdMuseum.lvl1
@@ -159,7 +159,7 @@ function QuestPage({ num, userName }) {
           </button>
         </Link>
         <br />
-        <Link to={`/${userName.firstName}/thirdMuseum/secondLevel`}>
+        <Link to={`/${userName.firstName}/IsahakyanMuseum/secondLevel`}>
           <button
             style={{
               "background-color": userName.Levels.thirdMuseum.lvl2
@@ -171,7 +171,7 @@ function QuestPage({ num, userName }) {
           </button>
         </Link>
         <br />
-        <Link to={`/${userName.firstName}/thirdMuseum/thirdLevel`}>
+        <Link to={`/${userName.firstName}/IsahakyanMuseum/thirdLevel`}>
           <button
             style={{
               "background-color": userName.Levels.thirdMuseum.lvl3
@@ -183,7 +183,7 @@ function QuestPage({ num, userName }) {
           </button>
         </Link>
         <br />
-        <Link to={`/${userName.firstName}/thirdMuseum/forthLevel`}>
+        <Link to={`/${userName.firstName}/IsahakyanMuseum/forthLevel`}>
           <button
             style={{
               "background-color": userName.Levels.thirdMuseum.lvl4
@@ -195,7 +195,7 @@ function QuestPage({ num, userName }) {
           </button>
         </Link>
         <br />
-        <Link to={`/${userName.firstName}/thirdMuseum/fifthLevel`}>
+        <Link to={`/${userName.firstName}/IsahakyanMuseum/fifthLevel`}>
           <button
             style={{
               "background-color": userName.Levels.thirdMuseum.lvl5
@@ -216,7 +216,7 @@ function QuestPage({ num, userName }) {
           <button>Back to Museums</button>{" "}
         </Link>
         <br />
-        <Link to={`/${userName.firstName}/forthMuseum/firstLevel`}>
+        <Link to={`/${userName.firstName}/KomitasMuseum/firstLevel`}>
           <button
             style={{
               "background-color": userName.Levels.forthMuseum.lvl1
@@ -228,7 +228,7 @@ function QuestPage({ num, userName }) {
           </button>
         </Link>
         <br />
-        <Link to={`/${userName.firstName}/forthMuseum/secondLevel`}>
+        <Link to={`/${userName.firstName}/KomitasMuseum/secondLevel`}>
           <button
             style={{
               "background-color": userName.Levels.forthMuseum.lvl2
@@ -240,7 +240,7 @@ function QuestPage({ num, userName }) {
           </button>
         </Link>
         <br />
-        <Link to={`/${userName.firstName}/forthMuseum/thirdLevel`}>
+        <Link to={`/${userName.firstName}/KomitasMuseum/thirdLevel`}>
           <button
             style={{
               "background-color": userName.Levels.forthMuseum.lvl3
@@ -252,7 +252,7 @@ function QuestPage({ num, userName }) {
           </button>
         </Link>
         <br />
-        <Link to={`/${userName.firstName}/forthMuseum/forthLevel`}>
+        <Link to={`/${userName.firstName}/KomitasMuseum/forthLevel`}>
           <button
             style={{
               "background-color": userName.Levels.forthMuseum.lvl4
@@ -264,7 +264,7 @@ function QuestPage({ num, userName }) {
           </button>
         </Link>
         <br />
-        <Link to={`/${userName.firstName}/forthMuseum/fifthLevel`}>
+        <Link to={`/${userName.firstName}/KomitasMuseum/fifthLevel`}>
           <button
             style={{
               "background-color": userName.Levels.forthMuseum.lvl5
