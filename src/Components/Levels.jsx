@@ -5,41 +5,58 @@ import { Link } from "react-router-dom";
 import "../style/Levels.css";
 
 function Levels({ num, userName }) {
-  const [latitude,setLatitude] = useState("")
-  const [longitude,setLongitude] = useState("")
+  const [latitude, setLatitude] = useState("");
+  const [longitude, setLongitude] = useState("");
+  const [answr, setAnswr] = useState("");
 
   navigator.geolocation.getCurrentPosition(showPosition);
   function showPosition(position) {
-    setLatitude(position.coords.latitude);
-    setLongitude(position.coords.longitude);
+    setLatitude(Math.floor(position.coords.latitude * 1000) / 1000);
+    setLongitude(Math.floor(position.coords.longitude * 1000) / 1000);
   }
-  // const [answr,setAnswr] = useState("") 
-console.log(latitude,longitude)
 
-//  const handleInput = event =>{
-//   setAnswr(event.target.value)
-//  }
+  function checkAnswr(answr, rightAnswer = "") {
+    if (answr === rightAnswer) {
+      alert("OK");
+    }
+  }
 
-  if (num === "1.1")
+  console.log(latitude, longitude, userName.Levels.firstMuseum.lvl1);
+
+  if (num === "1.1" && !userName.Levels.firstMuseum.lvl1)
+    //&& latitude===40.182&&longitude===44.509
     return (
-      <div id="question">
+      <div className="quiz-container">
         <button>
-          <Link to={`/${userName.firstName}/CharentsMuseum`}>Back to levels</Link>
+          <Link to={`/${userName}/CharentsMuseum`}>Back to levels</Link>
         </button>
         <h1>1</h1>
         <h2>When was the Yeghishe Charents House-Museum founded?</h2>
         <form>
-        <TextField id="outlined-basic" label="Answer" variant="outlined" />
-        <br />
-        <Button type="submit" variant="contained" color="inherit">
-          Submit answer
-        </Button>
+          <TextField
+            value={answr}
+            onChange={(e) => {
+              setAnswr(e.target.value);
+            }}
+            id="outlined-basic"
+            label="Answer"
+            variant="outlined"
+          />
+          <br />
+          <Button
+            type="submit"
+            variant="contained"
+            color="inherit"
+            onClick={() => checkAnswr(answr, "1964")}
+          >
+            Submit answer
+          </Button>
         </form>
         <br />
         {/* <p>1964</p> */}
         {/* <h1>Hint</h1> */}
         <button>
-          <Link to={`/${userName.firstName}/CharentsMuseum/secondLevel`}>Next Level</Link>
+          <Link to={`/${userName}/CharentsMuseum/secondLevel`}>Next Level</Link>
         </button>
       </div>
     );
@@ -70,9 +87,13 @@ console.log(latitude,longitude)
         <h1>Answers</h1>
         <p>answer</p>
         <h1>Hint</h1>
-        <Link to={`/${userName.firstName}/CharentsMuseum/forthLevel`}>Next Level</Link>
+        <Link to={`/${userName.firstName}/CharentsMuseum/forthLevel`}>
+          Next Level
+        </Link>
         <br />
-        <Link to={`/${userName.firstName}/CharentsMuseum/secondLevel`}>Previous Level</Link>
+        <Link to={`/${userName.firstName}/CharentsMuseum/secondLevel`}>
+          Previous Level
+        </Link>
       </div>
     );
   if (num === "1.4")
@@ -84,9 +105,13 @@ console.log(latitude,longitude)
         <h1>Answers</h1>
         <p>answer</p>
         <h1>Hint</h1>
-        <Link to={`/${userName.firstName}/CharentsMuseum/fifthLevel`}>Next Level</Link>
+        <Link to={`/${userName.firstName}/CharentsMuseum/fifthLevel`}>
+          Next Level
+        </Link>
         <br />
-        <Link to={`/${userName.firstName}/CharentsMuseum/thirdLevel`}>Previous Level</Link>
+        <Link to={`/${userName.firstName}/CharentsMuseum/thirdLevel`}>
+          Previous Level
+        </Link>
       </div>
     );
   if (num === "1.5")
@@ -100,7 +125,9 @@ console.log(latitude,longitude)
         <h1>Hint</h1>
         <p>Next Level</p>
         <br />
-        <Link to={`/${userName.firstName}/CharentsMuseum/forthLevel`}>Previous Level</Link>
+        <Link to={`/${userName.firstName}/CharentsMuseum/forthLevel`}>
+          Previous Level
+        </Link>
       </div>
     );
   if (num === "2.1")
@@ -112,7 +139,9 @@ console.log(latitude,longitude)
         <h1>Answers</h1>
         <p>answer</p>
         <h1>Hint</h1>
-        <Link to={`/${userName.firstName}/TumanyanMuseum/secondLevel`}>Next Level</Link>
+        <Link to={`/${userName.firstName}/TumanyanMuseum/secondLevel`}>
+          Next Level
+        </Link>
         <p>Previous Level</p>
       </div>
     );
@@ -125,9 +154,13 @@ console.log(latitude,longitude)
         <h1>Answers</h1>
         <p>answer</p>
         <h1>Hint</h1>
-        <Link to={`/${userName.firstName}/TumanyanMuseum/thirdLevel`}>Next Level</Link>
+        <Link to={`/${userName.firstName}/TumanyanMuseum/thirdLevel`}>
+          Next Level
+        </Link>
         <br />
-        <Link to={`/${userName.firstName}/TumanyanMuseum/firstLevel`}>Previous Level</Link>
+        <Link to={`/${userName.firstName}/TumanyanMuseum/firstLevel`}>
+          Previous Level
+        </Link>
       </div>
     );
   if (num === "2.3")
@@ -139,9 +172,13 @@ console.log(latitude,longitude)
         <h1>Answers</h1>
         <p>answer</p>
         <h1>Hint</h1>
-        <Link to={`/${userName.firstName}/TumanyanMuseum/forthLevel`}>Next Level</Link>
+        <Link to={`/${userName.firstName}/TumanyanMuseum/forthLevel`}>
+          Next Level
+        </Link>
         <br />
-        <Link to={`/${userName.firstName}/TumanyanMuseum/secondLevel`}>Previous Level</Link>
+        <Link to={`/${userName.firstName}/TumanyanMuseum/secondLevel`}>
+          Previous Level
+        </Link>
       </div>
     );
   if (num === "2.4")
@@ -153,9 +190,13 @@ console.log(latitude,longitude)
         <h1>Answers</h1>
         <p>answer</p>
         <h1>Hint</h1>
-        <Link to={`/${userName.firstName}/TumanyanMuseum/fifthLevel`}>Next Level</Link>
+        <Link to={`/${userName.firstName}/TumanyanMuseum/fifthLevel`}>
+          Next Level
+        </Link>
         <br />
-        <Link to={`/${userName.firstName}/TumanyanMuseum/thirdLevel`}>Previous Level</Link>
+        <Link to={`/${userName.firstName}/TumanyanMuseum/thirdLevel`}>
+          Previous Level
+        </Link>
       </div>
     );
   if (num === "2.5")
@@ -169,68 +210,94 @@ console.log(latitude,longitude)
         <h1>Hint</h1>
         <p>Next Level</p>
         <br />
-        <Link to={`/${userName.firstName}/TumanyanMuseum/forthLevel`}>Previous Level</Link>
+        <Link to={`/${userName.firstName}/TumanyanMuseum/forthLevel`}>
+          Previous Level
+        </Link>
       </div>
     );
   if (num === "3.1")
     return (
       <div>
-        <Link to={`/${userName.firstName}/IsahakyanMuseum`}>Back to levels</Link>
+        <Link to={`/${userName.firstName}/IsahakyanMuseum`}>
+          Back to levels
+        </Link>
         <h1>1</h1>
         <h1>get question from data</h1>
         <h1>Answers</h1>
         <p>answer</p>
         <h1>Hint</h1>
-        <Link to={`/${userName.firstName}/IsahakyanMuseum/secondLevel`}>Next Level</Link>
+        <Link to={`/${userName.firstName}/IsahakyanMuseum/secondLevel`}>
+          Next Level
+        </Link>
         <p>Previous Level</p>
       </div>
     );
   if (num === "3.2")
     return (
       <div>
-        <Link to={`/${userName.firstName}/IsahakyanMuseum`}>Back to levels</Link>
+        <Link to={`/${userName.firstName}/IsahakyanMuseum`}>
+          Back to levels
+        </Link>
         <h1>2</h1>
         <h1>get question from data</h1>
         <h1>Answers</h1>
         <p>answer</p>
         <h1>Hint</h1>
-        <Link to={`/${userName.firstName}/IsahakyanMuseum/thirdLevel`}>Next Level</Link>
+        <Link to={`/${userName.firstName}/IsahakyanMuseum/thirdLevel`}>
+          Next Level
+        </Link>
         <br />
-        <Link to={`/${userName.firstName}/IsahakyanMuseum/firstLevel`}>Previous Level</Link>
+        <Link to={`/${userName.firstName}/IsahakyanMuseum/firstLevel`}>
+          Previous Level
+        </Link>
       </div>
     );
   if (num === "3.3")
     return (
       <div>
-        <Link to={`/${userName.firstName}/IsahakyanMuseum`}>Back to levels</Link>
+        <Link to={`/${userName.firstName}/IsahakyanMuseum`}>
+          Back to levels
+        </Link>
         <h1>3</h1>
         <h1>get question from data</h1>
         <h1>Answers</h1>
         <p>answer</p>
         <h1>Hint</h1>
-        <Link to={`/${userName.firstName}/IsahakyanMuseum/forthLevel`}>Next Level</Link>
+        <Link to={`/${userName.firstName}/IsahakyanMuseum/forthLevel`}>
+          Next Level
+        </Link>
         <br />
-        <Link to={`/${userName.firstName}/IsahakyanMuseum/secondLevel`}>Previous Level</Link>
+        <Link to={`/${userName.firstName}/IsahakyanMuseum/secondLevel`}>
+          Previous Level
+        </Link>
       </div>
     );
   if (num === "3.4")
     return (
       <div>
-        <Link to={`/${userName.firstName}/IsahakyanMuseum`}>Back to levels</Link>
+        <Link to={`/${userName.firstName}/IsahakyanMuseum`}>
+          Back to levels
+        </Link>
         <h1>4</h1>
         <h1>get question from data</h1>
         <h1>Answers</h1>
         <p>answer</p>
         <h1>Hint</h1>
-        <Link to={`/${userName.firstName}/IsahakyanMuseum/fifthLevel`}>Next Level</Link>
+        <Link to={`/${userName.firstName}/IsahakyanMuseum/fifthLevel`}>
+          Next Level
+        </Link>
         <br />
-        <Link to={`/${userName.firstName}/IsahakyanMuseum/thirdLevel`}>Previous Level</Link>
+        <Link to={`/${userName.firstName}/IsahakyanMuseum/thirdLevel`}>
+          Previous Level
+        </Link>
       </div>
     );
   if (num === "3.5")
     return (
       <div>
-        <Link to={`/${userName.firstName}/IsahakyanMuseum`}>Back to levels</Link>
+        <Link to={`/${userName.firstName}/IsahakyanMuseum`}>
+          Back to levels
+        </Link>
         <h1>5</h1>
         <h1>get question from data</h1>
         <h1>Answers</h1>
@@ -238,14 +305,19 @@ console.log(latitude,longitude)
         <h1>Hint</h1>
         <p>Next Level</p>
         <br />
-        <Link to={`/${userName.firstName}/IsahakyanMuseum/forthLevel`}>Previous Level</Link>
+        <Link to={`/${userName.firstName}/IsahakyanMuseum/forthLevel`}>
+          Previous Level
+        </Link>
       </div>
     );
   if (num === "4.1")
     return (
-      <div id="question">
+      <div className="quiz-container">
+        >
         <button>
-          <Link to={`/${userName.firstName}/KomitasMuseum`}>Back to levels</Link>
+          <Link to={`/${userName.firstName}/KomitasMuseum`}>
+            Back to levels
+          </Link>
         </button>
         <h1>1</h1>
         <h2>When was the Toumanyan House-Museum founded?</h2>
@@ -254,7 +326,9 @@ console.log(latitude,longitude)
         {/* <p>1964</p> */}
         {/* <h1>Hint</h1> */}
         <button>
-          <Link to={`/${userName.firstName}/KomitasMuseum/secondLevel`}>Next Level</Link>
+          <Link to={`/${userName.firstName}/KomitasMuseum/secondLevel`}>
+            Next Level
+          </Link>
         </button>
       </div>
     );
@@ -267,9 +341,13 @@ console.log(latitude,longitude)
         <h1>Answers</h1>
         <p>answer</p>
         <h1>Hint</h1>
-        <Link to={`/${userName.firstName}/KomitasMuseum/thirdLevel`}>Next Level</Link>
+        <Link to={`/${userName.firstName}/KomitasMuseum/thirdLevel`}>
+          Next Level
+        </Link>
         <br />
-        <Link to={`/${userName.firstName}/KomitasMuseum/firstLevel`}>Previous Level</Link>
+        <Link to={`/${userName.firstName}/KomitasMuseum/firstLevel`}>
+          Previous Level
+        </Link>
       </div>
     );
   if (num === "4.3")
@@ -281,9 +359,13 @@ console.log(latitude,longitude)
         <h1>Answers</h1>
         <p>answer</p>
         <h1>Hint</h1>
-        <Link to={`/${userName.firstName}/KomitasMuseum/forthLevel`}>Next Level</Link>
+        <Link to={`/${userName.firstName}/KomitasMuseum/forthLevel`}>
+          Next Level
+        </Link>
         <br />
-        <Link to={`/${userName.firstName}/KomitasMuseum/secondLevel`}>Previous Level</Link>
+        <Link to={`/${userName.firstName}/KomitasMuseum/secondLevel`}>
+          Previous Level
+        </Link>
       </div>
     );
   if (num === "4.4")
@@ -295,9 +377,13 @@ console.log(latitude,longitude)
         <h1>Answers</h1>
         <p>answer</p>
         <h1>Hint</h1>
-        <Link to={`/${userName.firstName}/KomitasMuseum/fifthLevel`}>Next Level</Link>
+        <Link to={`/${userName.firstName}/KomitasMuseum/fifthLevel`}>
+          Next Level
+        </Link>
         <br />
-        <Link to={`/${userName.firstName}/KomitasMuseum/thirdLevel`}>Previous Level</Link>
+        <Link to={`/${userName.firstName}/KomitasMuseum/thirdLevel`}>
+          Previous Level
+        </Link>
       </div>
     );
   if (num === "4.5")
@@ -311,7 +397,9 @@ console.log(latitude,longitude)
         <h1>Hint</h1>
         <p>Next Level</p>
         <br />
-        <Link to={`/${userName.firstName}/KomitasMuseum/forthLevel`}>Previous Level</Link>
+        <Link to={`/${userName.firstName}/KomitasMuseum/forthLevel`}>
+          Previous Level
+        </Link>
       </div>
     );
 }
