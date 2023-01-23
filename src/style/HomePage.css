@@ -1,6 +1,4 @@
-body{
-    background-color: white;
-}
+
 .cont-imgs{
     color:black;
     height:225px;
@@ -25,6 +23,7 @@ body{
     margin-top: 250px;
     margin-left: 30px;
     cursor: pointer;
+    text-align: left;
 }
 .nameOfMuseum:hover{
     text-decoration: underline;
@@ -32,6 +31,9 @@ body{
 .cont-all{
     display: flex;
     flex-direction: row;
+    background-color: black;
+    height:500px;
+
 }
 .infoCont{
     background-color: blue;
@@ -55,13 +57,13 @@ body{
         flex-direction: column;   
     }
     .intro{
-        width:100vw;
         height: auto;
         margin-left: 10px;
     }
     .cont-all{
         display: flex;
         flex-direction: column;
+        height: 1300px;
     }
     .cont-imgs{
         margin-left: 50px;
