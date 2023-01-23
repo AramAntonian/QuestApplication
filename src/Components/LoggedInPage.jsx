@@ -14,19 +14,19 @@ function LoggedInPage({userName}){
         <div className="cont-museums">
             <div className="cont-imges">
                 <img className = "imgs" src = "https://www.yerevan.am/uploads/media/default/0001/11/thumb_10033_default_allimages.jpeg" alt = "Charent's museum"/>
-                <p className="nameOfMuseum" onClick={()=>{navigate(`/${userName}/CharentsMuseum`)}}>Yeghishe Charents house-museum</p>
+                <p className="nameOfMuseum" onClick={()=>{navigate(`/${userName.firstName}/CharentsMuseum`)}}>Yeghishe Charents house-museum</p>
             </div>
             <div className="cont-imges">
                 <img className = "imgs" src = "https://www.yerevan.am/uploads/media/default/0001/01/thumb_42_default_allimages.jpeg" alt = "Charent's museum"/>
-                <p className="nameOfMuseum" onClick={()=>{navigate(`/${userName}/TumanyanMuseum`)}}>Hovhannes Toumanyan Museum</p>
+                <p className="nameOfMuseum" onClick={()=>{navigate(`/${userName.firstName}/TumanyanMuseum`)}}>Hovhannes Toumanyan Museum</p>
             </div>
             <div className="cont-imges">
                 <img className = "imgs" src = "https://www.yerevan.am/uploads/media/default/0001/11/thumb_10034_default_allimages.jpeg" alt = "Charent's museum"/>
-                <p className="nameOfMuseum" onClick={()=>{navigate(`/${userName}/IsahakyanMuseum`)}}>Avetik Isahakyan house-museum</p>
+                <p className="nameOfMuseum" onClick={()=>{navigate(`/${userName.firstName}/IsahakyanMuseum`)}}>Avetik Isahakyan house-museum</p>
             </div>
             <div className="cont-imges">
                 <img className = "imgs" src = "https://www.yerevan.am/uploads/media/default/0001/48/thumb_47817_default_allimages.jpeg" alt = "Charent's museum"/>
-                <p className="nameOfMuseum" onClick={()=>{navigate(`/${userName}/KomitasMuseum`)}}>Komitas museum-institute</p>
+                <p className="nameOfMuseum" onClick={()=>{navigate(`/${userName.firstName}/KomitasMuseum`)}}>Komitas museum-institute</p>
             </div>
 
 

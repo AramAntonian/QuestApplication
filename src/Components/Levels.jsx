@@ -313,7 +313,7 @@ function Levels({ num, userName }) {
   if (num === "4.1")
     return (
       <div className="quiz-container">
-        >
+        
         <button>
           <Link to={`/${userName.firstName}/KomitasMuseum`}>
             Back to levels
