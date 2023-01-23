@@ -12,7 +12,7 @@ function QuestPage({ num, userName }) {
         <Link to={`/${userName.firstName}/CharentsMuseum/firstLevel`}>
           <button
             style={{
-              "background-color": userName.Levels.firstMuseum.lvl1
+              "backgroundColor": userName.Levels.firstMuseum.lvl1
                 ? "green"
                 : "red",
             }}
@@ -24,7 +24,7 @@ function QuestPage({ num, userName }) {
         <Link to={`/${userName.firstName}/CharentsMuseum/secondLevel`}>
           <button
             style={{
-              "background-color": userName.Levels.firstMuseum.lvl2
+              "backgroundColor": userName.Levels.firstMuseum.lvl2
                 ? "green"
                 : "red",
             }}
@@ -36,7 +36,7 @@ function QuestPage({ num, userName }) {
         <Link to={`/${userName.firstName}/CharentsMuseum/thirdLevel`}>
           <button
             style={{
-              "background-color": userName.Levels.firstMuseum.lvl3
+              "backgroundColor": userName.Levels.firstMuseum.lvl3
                 ? "green"
                 : "red",
             }}
@@ -48,7 +48,7 @@ function QuestPage({ num, userName }) {
         <Link to={`/${userName.firstName}/CharentsMuseum/forthLevel`}>
           <button
             style={{
-              "background-color": userName.Levels.firstMuseum.lvl4
+              "backgroundColor": userName.Levels.firstMuseum.lvl4
                 ? "green"
                 : "red",
             }}
@@ -60,7 +60,7 @@ function QuestPage({ num, userName }) {
         <Link to={`/${userName.firstName}/CharentsMuseum/fifthLevel`}>
           <button
             style={{
-              "background-color": userName.Levels.firstMuseum.lvl5
+              "backgroundColor": userName.Levels.firstMuseum.lvl5
                 ? "green"
                 : "red",
             }}
@@ -81,7 +81,7 @@ function QuestPage({ num, userName }) {
         <Link to={`/${userName.firstName}/TumanyanMuseum/firstLevel`}>
           <button
             style={{
-              "background-color": userName.Levels.secondMuseum.lvl1
+              "backgroundColor": userName.Levels.secondMuseum.lvl1
                 ? "green"
                 : "red",
             }}
@@ -93,7 +93,7 @@ function QuestPage({ num, userName }) {
         <Link to={`/${userName.firstName}/TumanyanMuseum/secondLevel`}>
           <button
             style={{
-              "background-color": userName.Levels.secondMuseum.lvl2
+              "backgroundColor": userName.Levels.secondMuseum.lvl2
                 ? "green"
                 : "red",
             }}
@@ -105,7 +105,7 @@ function QuestPage({ num, userName }) {
         <Link to={`/${userName.firstName}/TumanyanMuseum/thirdLevel`}>
           <button
             style={{
-              "background-color": userName.Levels.secondMuseum.lvl3
+              "backgroundColor": userName.Levels.secondMuseum.lvl3
                 ? "green"
                 : "red",
             }}
@@ -117,7 +117,7 @@ function QuestPage({ num, userName }) {
         <Link to={`/${userName.firstName}/TumanyanMuseum/forthLevel`}>
           <button
             style={{
-              "background-color": userName.Levels.secondMuseum.lvl4
+              "backgroundColor": userName.Levels.secondMuseum.lvl4
                 ? "green"
                 : "red",
             }}
@@ -129,7 +129,7 @@ function QuestPage({ num, userName }) {
         <Link to={`/${userName.firstName}/TumanyanMuseum/fifthLevel`}>
           <button
             style={{
-              "background-color": userName.Levels.secondMuseum.lvl5
+              "backgroundColor": userName.Levels.secondMuseum.lvl5
                 ? "green"
                 : "red",
             }}
@@ -150,7 +150,7 @@ function QuestPage({ num, userName }) {
         <Link to={`/${userName.firstName}/IsahakyanMuseum/firstLevel`}>
           <button
             style={{
-              "background-color": userName.Levels.thirdMuseum.lvl1
+              "backgroundColor": userName.Levels.thirdMuseum.lvl1
                 ? "green"
                 : "red",
             }}
@@ -162,7 +162,7 @@ function QuestPage({ num, userName }) {
         <Link to={`/${userName.firstName}/IsahakyanMuseum/secondLevel`}>
           <button
             style={{
-              "background-color": userName.Levels.thirdMuseum.lvl2
+              "backgroundColor": userName.Levels.thirdMuseum.lvl2
                 ? "green"
                 : "red",
             }}
@@ -174,7 +174,7 @@ function QuestPage({ num, userName }) {
         <Link to={`/${userName.firstName}/IsahakyanMuseum/thirdLevel`}>
           <button
             style={{
-              "background-color": userName.Levels.thirdMuseum.lvl3
+              "backgroundColor": userName.Levels.thirdMuseum.lvl3
                 ? "green"
                 : "red",
             }}
@@ -186,7 +186,7 @@ function QuestPage({ num, userName }) {
         <Link to={`/${userName.firstName}/IsahakyanMuseum/forthLevel`}>
           <button
             style={{
-              "background-color": userName.Levels.thirdMuseum.lvl4
+              "backgroundColor": userName.Levels.thirdMuseum.lvl4
                 ? "green"
                 : "red",
             }}
@@ -198,7 +198,7 @@ function QuestPage({ num, userName }) {
         <Link to={`/${userName.firstName}/IsahakyanMuseum/fifthLevel`}>
           <button
             style={{
-              "background-color": userName.Levels.thirdMuseum.lvl5
+              "backgroundColor": userName.Levels.thirdMuseum.lvl5
                 ? "green"
                 : "red",
             }}
@@ -219,7 +219,7 @@ function QuestPage({ num, userName }) {
         <Link to={`/${userName.firstName}/KomitasMuseum/firstLevel`}>
           <button
             style={{
-              "background-color": userName.Levels.forthMuseum.lvl1
+              "backgroundColor": userName.Levels.forthMuseum.lvl1
                 ? "green"
                 : "red",
             }}
@@ -231,7 +231,7 @@ function QuestPage({ num, userName }) {
         <Link to={`/${userName.firstName}/KomitasMuseum/secondLevel`}>
           <button
             style={{
-              "background-color": userName.Levels.forthMuseum.lvl2
+              "backgroundColor": userName.Levels.forthMuseum.lvl2
                 ? "green"
                 : "red",
             }}
@@ -243,7 +243,7 @@ function QuestPage({ num, userName }) {
         <Link to={`/${userName.firstName}/KomitasMuseum/thirdLevel`}>
           <button
             style={{
-              "background-color": userName.Levels.forthMuseum.lvl3
+              "backgroundColor": userName.Levels.forthMuseum.lvl3
                 ? "green"
                 : "red",
             }}
@@ -255,7 +255,7 @@ function QuestPage({ num, userName }) {
         <Link to={`/${userName.firstName}/KomitasMuseum/forthLevel`}>
           <button
             style={{
-              "background-color": userName.Levels.forthMuseum.lvl4
+              "backgroundColor": userName.Levels.forthMuseum.lvl4
                 ? "green"
                 : "red",
             }}
@@ -267,7 +267,7 @@ function QuestPage({ num, userName }) {
         <Link to={`/${userName.firstName}/KomitasMuseum/fifthLevel`}>
           <button
             style={{
-              "background-color": userName.Levels.forthMuseum.lvl5
+              "backgroundColor": userName.Levels.forthMuseum.lvl5
                 ? "green"
                 : "red",
             }}
