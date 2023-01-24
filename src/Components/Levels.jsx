@@ -9,17 +9,45 @@ function Levels({ num, userName }) {
   const [longitude, setLongitude] = useState("");
   const [answr, setAnswr] = useState("");
 
+  const question1 = ["1964"];
+  const question2 = ["1422"];
+  const question3 = [
+    "movseskhorenatsi",
+    "pavstosbuzand",
+    "grigornarekatsi",
+    "nahapetkuchak",
+    "nersesshnorali",
+    "sayatnova",
+    "leo",
+    "hovhannestumanyan",
+    "vahanteryan",
+    "avetikisahakyan",
+    "misakmetsarents",
+    "bahaturbahatryan",
+  ];
+  const question4 = ["1897"];
+  const question5 = ["morphinism"];
+
   navigator.geolocation.getCurrentPosition(showPosition);
   function showPosition(position) {
     setLatitude(Math.floor(position.coords.latitude * 1000) / 1000);
     setLongitude(Math.floor(position.coords.longitude * 1000) / 1000);
   }
 
-  function checkAnswr(answr, rightAnswer = "") {
-    if (answr === rightAnswer) {
-      alert("You got it!");
-      return true;
-    } else return false;
+  function checkAnswr(answr, questionArr) {
+    answr
+      .trim()
+      .replace(/(\.|-|\/|\\| )/g, "")
+      .toLowerCase()
+      .split(",")
+      .every((el) => {
+        if (questionArr.includes(el)) {
+          console.log(el);
+          return true;
+        } else {
+          return false;
+        }
+      });
   }
 
   console.log(latitude, longitude, userName.Levels.firstMuseum.lvl1);
@@ -51,8 +79,8 @@ function Levels({ num, userName }) {
             variant="contained"
             color="inherit"
             onClick={() =>
-              checkAnswr(answr, "1964")
-                ? (userName.Levels.firstMuseum.lvl1 = true)
+              checkAnswr(answr, question1)
+                ? alert("OK")
                 : alert("Wrong answer!")
             }
           >
@@ -96,7 +124,7 @@ function Levels({ num, userName }) {
             variant="contained"
             color="inherit"
             onClick={() =>
-              checkAnswr(answr, "1422")
+              checkAnswr(answr, question2)
                 ? (userName.Levels.firstMuseum.lvl2 = true)
                 : alert("Wrong answer!")
             }
@@ -127,9 +155,12 @@ function Levels({ num, userName }) {
           </Link>
         </button>
         <h1 className="num">3</h1>
-        <h2>Which Armenian writers did Charents like to read?</h2>
+        <h2>
+          Which Armenian writers did Charents like to read?(write 3 writers)
+        </h2>
         <form>
           <TextField
+            helperText={"separated by commas"}
             value={answr}
             onChange={(e) => {
               setAnswr(e.target.value);
@@ -144,7 +175,7 @@ function Levels({ num, userName }) {
             variant="contained"
             color="inherit"
             onClick={() =>
-              checkAnswr(answr, "Movses Khorenatsi")
+              checkAnswr(answr, question3)
                 ? (userName.Levels.firstMuseum.lvl3 = true)
                 : alert("Wrong answer!")
             }
@@ -159,7 +190,7 @@ function Levels({ num, userName }) {
           </Link>
         </button>
         <button>
-          <Link to={`/${userName.firstName}/CharentsMuseum/thirdLevel`}>
+          <Link to={`/${userName.firstName}/CharentsMuseum/secondLevel`}>
             Previous Level
           </Link>
         </button>
@@ -192,7 +223,7 @@ function Levels({ num, userName }) {
             variant="contained"
             color="inherit"
             onClick={() =>
-              checkAnswr(answr, "1897")
+              checkAnswr(answr, question4)
                 ? (userName.Levels.firstMuseum.lvl4 = true)
                 : alert("Wrong answer!")
             }
@@ -240,7 +271,7 @@ function Levels({ num, userName }) {
             variant="contained"
             color="inherit"
             onClick={() =>
-              checkAnswr(answr, "morphinism")
+              checkAnswr(answr, question5)
                 ? (userName.Levels.firstMuseum.lvl4 = true)
                 : alert("Wrong answer!")
             }
