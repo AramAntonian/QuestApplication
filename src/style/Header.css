@@ -19,6 +19,7 @@
 .headerLogo{
     width: 40px;
     height: 40px;
+    cursor: pointer;
 }
 .SignInBoo{
     padding-top: 10px;
