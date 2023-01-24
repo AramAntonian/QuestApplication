@@ -28,9 +28,11 @@ function Levels({ num, userName }) {
     return (
       <div className="quiz-container">
         <button>
-          <Link to={`/${userName}/CharentsMuseum`}>Back to levels</Link>
+          <Link to={`/${userName.firstName}/CharentsMuseum`}>
+            Back to levels
+          </Link>
         </button>
-        <h1>1</h1>
+        <h1 className="num">1</h1>
         <h2>When was the Yeghishe Charents House-Museum founded?</h2>
         <form>
           <TextField
@@ -56,7 +58,9 @@ function Levels({ num, userName }) {
         {/* <p>1964</p> */}
         {/* <h1>Hint</h1> */}
         <button>
-          <Link to={`/${userName}/CharentsMuseum/secondLevel`}>Next Level</Link>
+          <Link to={`/${userName.firstName}/CharentsMuseum/secondLevel`}>
+            Next Level
+          </Link>
         </button>
       </div>
     );
