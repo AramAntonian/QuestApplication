@@ -17,8 +17,9 @@ function Levels({ num, userName }) {
 
   function checkAnswr(answr, rightAnswer = "") {
     if (answr === rightAnswer) {
-      alert("OK");
-    }
+      alert("You got it!");
+      return true;
+    } else return false;
   }
 
   console.log(latitude, longitude, userName.Levels.firstMuseum.lvl1);
@@ -49,7 +50,11 @@ function Levels({ num, userName }) {
             type="submit"
             variant="contained"
             color="inherit"
-            onClick={() => checkAnswr(answr, "1964")}
+            onClick={() =>
+              checkAnswr(answr, "1964")
+                ? (userName.Levels.firstMuseum.lvl1 = true)
+                : alert("Wrong answer!")
+            }
           >
             Submit answer
           </Button>
@@ -64,74 +69,191 @@ function Levels({ num, userName }) {
         </button>
       </div>
     );
-  if (num === "1.2")
+  if (num === "1.2" && !userName.Levels.firstMuseum.lvl2)
+    //&& latitude===40.182&&longitude===44.509
     return (
-      <div>
-        <Link to={`/${userName.firstName}/CharentsMuseum`}>Back to levels</Link>
-        <h1>2</h1>
-        <h1>get question from data</h1>
-        <h1>Answers</h1>
-        <p>answer</p>
-        <h1>Hint</h1>
-        <Link to={`/${userName.firstName}/CharentsMuseum/thirdLevel`}>
-          Next Level
-        </Link>
+      <div className="quiz-container">
+        <button>
+          <Link to={`/${userName.firstName}/CharentsMuseum`}>
+            Back to levels
+          </Link>
+        </button>
+        <h1 className="num">2</h1>
+        <h2>How many books are currently in Cherents' personal library?</h2>
+        <form>
+          <TextField
+            value={answr}
+            onChange={(e) => {
+              setAnswr(e.target.value);
+            }}
+            id="outlined-basic"
+            label="Answer"
+            variant="outlined"
+          />
+          <br />
+          <Button
+            type="submit"
+            variant="contained"
+            color="inherit"
+            onClick={() =>
+              checkAnswr(answr, "1422")
+                ? (userName.Levels.firstMuseum.lvl2 = true)
+                : alert("Wrong answer!")
+            }
+          >
+            Submit answer
+          </Button>
+        </form>
         <br />
-        <Link to={`/${userName.firstName}/CharentsMuseum/firstLevel`}>
-          Previous Level
-        </Link>
+        <button>
+          <Link to={`/${userName.firstName}/CharentsMuseum/thirdLevel`}>
+            Next Level
+          </Link>
+        </button>
+        <button>
+          <Link to={`/${userName.firstName}/CharentsMuseum/firstLevel`}>
+            Previous Level
+          </Link>
+        </button>
       </div>
     );
-  if (num === "1.3")
+  if (num === "1.3" && !userName.Levels.firstMuseum.lvl3)
+    //&& latitude===40.182&&longitude===44.509
     return (
-      <div>
-        <Link to={`/${userName.firstName}/CharentsMuseum`}>Back to levels</Link>
-        <h1>3</h1>
-        <h1>get question from data</h1>
-        <h1>Answers</h1>
-        <p>answer</p>
-        <h1>Hint</h1>
-        <Link to={`/${userName.firstName}/CharentsMuseum/forthLevel`}>
-          Next Level
-        </Link>
+      <div className="quiz-container">
+        <button>
+          <Link to={`/${userName.firstName}/CharentsMuseum`}>
+            Back to levels
+          </Link>
+        </button>
+        <h1 className="num">3</h1>
+        <h2>Which Armenian writers did Charents like to read?</h2>
+        <form>
+          <TextField
+            value={answr}
+            onChange={(e) => {
+              setAnswr(e.target.value);
+            }}
+            id="outlined-basic"
+            label="Answer"
+            variant="outlined"
+          />
+          <br />
+          <Button
+            type="submit"
+            variant="contained"
+            color="inherit"
+            onClick={() =>
+              checkAnswr(answr, "Movses Khorenatsi")
+                ? (userName.Levels.firstMuseum.lvl3 = true)
+                : alert("Wrong answer!")
+            }
+          >
+            Submit answer
+          </Button>
+        </form>
         <br />
-        <Link to={`/${userName.firstName}/CharentsMuseum/secondLevel`}>
-          Previous Level
-        </Link>
+        <button>
+          <Link to={`/${userName.firstName}/CharentsMuseum/forthLevel`}>
+            Next Level
+          </Link>
+        </button>
+        <button>
+          <Link to={`/${userName.firstName}/CharentsMuseum/thirdLevel`}>
+            Previous Level
+          </Link>
+        </button>
       </div>
     );
-  if (num === "1.4")
+  if (num === "1.4" && !userName.Levels.firstMuseum.lvl4)
+    //&& latitude===40.182&&longitude===44.509
     return (
-      <div>
-        <Link to={`/${userName.firstName}/CharentsMuseum`}>Back to levels</Link>
-        <h1>4</h1>
-        <h1>get question from data</h1>
-        <h1>Answers</h1>
-        <p>answer</p>
-        <h1>Hint</h1>
-        <Link to={`/${userName.firstName}/CharentsMuseum/fifthLevel`}>
-          Next Level
-        </Link>
+      <div className="quiz-container">
+        <button>
+          <Link to={`/${userName.firstName}/CharentsMuseum`}>
+            Back to levels
+          </Link>
+        </button>
+        <h1 className="num">4</h1>
+        <h2>What year was Charents born?</h2>
+        <form>
+          <TextField
+            value={answr}
+            onChange={(e) => {
+              setAnswr(e.target.value);
+            }}
+            id="outlined-basic"
+            label="Answer"
+            variant="outlined"
+          />
+          <br />
+          <Button
+            type="submit"
+            variant="contained"
+            color="inherit"
+            onClick={() =>
+              checkAnswr(answr, "1897")
+                ? (userName.Levels.firstMuseum.lvl4 = true)
+                : alert("Wrong answer!")
+            }
+          >
+            Submit answer
+          </Button>
+        </form>
         <br />
-        <Link to={`/${userName.firstName}/CharentsMuseum/thirdLevel`}>
-          Previous Level
-        </Link>
+        <button>
+          <Link to={`/${userName.firstName}/CharentsMuseum/fifthLevel`}>
+            Next Level
+          </Link>
+        </button>
+        <button>
+          <Link to={`/${userName.firstName}/CharentsMuseum/thirdLevel`}>
+            Previous Level
+          </Link>
+        </button>
       </div>
     );
-  if (num === "1.5")
+  if (num === "1.5" && !userName.Levels.firstMuseum.lvl5)
+    //&& latitude===40.182&&longitude===44.509
     return (
-      <div>
-        <Link to={`/${userName.firstName}/CharentsMuseum`}>Back to levels</Link>
-        <h1>5</h1>
-        <h1>get question from data</h1>
-        <h1>Answers</h1>
-        <p>answer</p>
-        <h1>Hint</h1>
-        <p>Next Level</p>
+      <div className="quiz-container">
+        <button>
+          <Link to={`/${userName.firstName}/CharentsMuseum`}>
+            Back to levels
+          </Link>
+        </button>
+        <h1 className="num">5</h1>
+        <h2>What disease did Charents suffer from?</h2>
+        <form>
+          <TextField
+            value={answr}
+            onChange={(e) => {
+              setAnswr(e.target.value);
+            }}
+            id="outlined-basic"
+            label="Answer"
+            variant="outlined"
+          />
+          <br />
+          <Button
+            type="submit"
+            variant="contained"
+            color="inherit"
+            onClick={() =>
+              checkAnswr(answr, "morphinism")
+                ? (userName.Levels.firstMuseum.lvl4 = true)
+                : alert("Wrong answer!")
+            }
+          >
+            Submit answer
+          </Button>
+        </form>
         <br />
-        <Link to={`/${userName.firstName}/CharentsMuseum/forthLevel`}>
-          Previous Level
-        </Link>
+        <button>
+          <Link to={`/${userName.firstName}/CharentsMuseum/forthLevel`}>
+            Previous Level
+          </Link>
+        </button>
       </div>
     );
   if (num === "2.1")
@@ -317,7 +439,6 @@ function Levels({ num, userName }) {
   if (num === "4.1")
     return (
       <div className="quiz-container">
-        
         <button>
           <Link to={`/${userName.firstName}/KomitasMuseum`}>
             Back to levels
