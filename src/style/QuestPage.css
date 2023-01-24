@@ -1,32 +1,4 @@
 
-button {
-  display: inline-block;
-  font-family: arial,sans-serif;
-  font-size: 22px;
-  font-weight: bold;
-  color: rgb(68,68,68);
-  text-decoration: none;
-  user-select: none;
-  padding: .3em 1.2em;
-  outline: none;
-  border: 1px solid rgba(0,0,0,.1);
-  border-radius: 2px;
-  background: rgb(69, 75, 250) ;
-  transition: all .218s ease 0s;
-  margin-bottom: 1em;
-}
-button:hover {
-  color: rgb(24,24,24);
-  border: 1px solid rgb(1, 5, 121);
-  background: #0e0182 linear-gradient(#1f39a1, #0e0355);
-  box-shadow: 0 1px 2px rgba(0,0,0,.1);
-}
-button:active {
-  color: rgb(51,51,51);
-  border: 1px solid rgb(204,204,204);
-  background: rgb(238,238,238) linear-gradient(rgb(238,238,238), rgb(224,224,224));
-  box-shadow: 0 1px 2px rgba(0,0,0,.1) inset;
-}
 #list{
 text-align: center;
 margin-top: 10%;

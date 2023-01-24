@@ -1,291 +1,361 @@
+import { ArrowBackIos } from "@mui/icons-material";
 import { TextField, Button } from "@mui/material";
 import React from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { updateLvl, UseHint } from "../FireBase";
 import "../style/Levels.css";
 
-function Levels({ num, userName }) {
-  const [latitude, setLatitude] = useState("");
-  const [longitude, setLongitude] = useState("");
+function Levels({ num, userName, setUserName }) {
   const [answr, setAnswr] = useState("");
 
-  const question1 = ["1964"];
-  const question2 = ["1422"];
-  const question3 = [
-    "movseskhorenatsi",
-    "pavstosbuzand",
-    "grigornarekatsi",
-    "nahapetkuchak",
-    "nersesshnorali",
-    "sayatnova",
-    "leo",
-    "hovhannestumanyan",
-    "vahanteryan",
-    "avetikisahakyan",
-    "misakmetsarents",
-    "bahaturbahatryan",
-  ];
-  const question4 = ["1897"];
-  const question5 = ["morphinism"];
 
-  navigator.geolocation.getCurrentPosition(showPosition);
-  function showPosition(position) {
-    setLatitude(Math.floor(position.coords.latitude * 1000) / 1000);
-    setLongitude(Math.floor(position.coords.longitude * 1000) / 1000);
+
+
+
+
+  function checkAnswr(answr, rightAnswer) {
+    if(Array.isArray(rightAnswer)){
+      if(rightAnswer.filter(el => el.toLowerCase() === answr.toLowerCase()).length){
+        return true
+      }
+    }
+    else if(String(answr) === String(rightAnswer)){
+      return true
+    }
+    else{
+      return false
+    }
   }
 
-  function checkAnswr(answr, questionArr) {
-    answr
-      .trim()
-      .replace(/(\.|-|\/|\\| )/g, "")
-      .toLowerCase()
-      .split(",")
-      .every((el) => {
-        if (questionArr.includes(el)) {
-          console.log(el);
-          return true;
-        } else {
-          return false;
-        }
-      });
-  }
 
-  console.log(latitude, longitude, userName.Levels.firstMuseum.lvl1);
-
-  if (num === "1.1" && !userName.Levels.firstMuseum.lvl1)
-    //&& latitude===40.182&&longitude===44.509
+  if (num === "1.1")
     return (
-      <div className="quiz-container">
-        <button>
-          <Link to={`/${userName.firstName}/CharentsMuseum`}>
-            Back to levels
-          </Link>
-        </button>
+      <>
+      <Link to={`/${userName.firstName}/CharentsMuseum`}>
+      <ArrowBackIos />
+    </Link>
+      <div className="quiz-container" >
+       
         <h1 className="num">1</h1>
-        <h2>When was the Yeghishe Charents House-Museum founded?</h2>
-        <form>
-          <TextField
-            value={answr}
-            onChange={(e) => {
-              setAnswr(e.target.value);
-            }}
-            id="outlined-basic"
-            label="Answer"
-            variant="outlined"
+        <h2 className="questions">When was the Yeghishe Charents House-Museum founded?</h2>
+        <TextField
+          required
+          fullWidth
+          id="answer"
+          label="answer"
+          name="answer"
+          autoComplete="family-name"
+          autoFocus
+          value={answr}
+          onChange={(e) => {
+            setAnswr(e.target.value);
+          }}
           />
-          <br />
           <Button
-            type="submit"
-            variant="contained"
-            color="inherit"
-            onClick={() =>
-              checkAnswr(answr, question1)
-                ? alert("OK")
-                : alert("Wrong answer!")
-            }
-          >
+              fullWidth
+              variant="contained"
+              sx={{ mt: 3, mb: 2 }}
+              onClick= {
+                ()=> {
+                  if(userName.Levels.firstMuseum.lvl1){
+                    alert("already done")
+                  }
+                  else{
+                    checkAnswr(answr, 1964)?updateLvl("1.1",setUserName):alert("wrong answer")
+                  }
+               }
+               }
+            >
             Submit answer
-          </Button>
-        </form>
-        <br />
-        {/* <p>1964</p> */}
-        {/* <h1>Hint</h1> */}
-        <button>
-          <Link to={`/${userName.firstName}/CharentsMuseum/secondLevel`}>
+            </Button>
+          <div className="next-prev-cont">
+            <p></p>
+          <Link to={`/${userName.firstName}/CharentsMuseum/secondLevel`} className = "next-prev">
             Next Level
           </Link>
-        </button>
+          </div>
+          <p className = "hint" onClick = {()=>{
+            if(userName.Levels.firstMuseum.lvl1){
+
+            }
+            else if(userName.points > 0)
+              UseHint(setAnswr,'1*64')
+            else{
+              setAnswr("you dont have enough points")
+            }
+            }}>Use hint</p>
       </div>
+      </>
     );
-  if (num === "1.2" && !userName.Levels.firstMuseum.lvl2)
-    //&& latitude===40.182&&longitude===44.509
+  if (num === "1.2")
     return (
-      <div className="quiz-container">
-        <button>
-          <Link to={`/${userName.firstName}/CharentsMuseum`}>
-            Back to levels
-          </Link>
-        </button>
+      <>
+      <Link to={`/${userName.firstName}/CharentsMuseum`}>
+      <ArrowBackIos />
+      </Link>
+      <div className="quiz-container" >
+        
         <h1 className="num">2</h1>
-        <h2>How many books are currently in Cherents' personal library?</h2>
-        <form>
-          <TextField
-            value={answr}
-            onChange={(e) => {
-              setAnswr(e.target.value);
-            }}
-            id="outlined-basic"
-            label="Answer"
-            variant="outlined"
+        <h2 className="questions">How many books are currently in Cherents' personal library?</h2>
+        <TextField
+          required
+          fullWidth
+          id="answer"
+          label="answer"
+          name="answer"
+          autoComplete="family-name"
+          autoFocus
+          value={answr}
+          onChange={(e) => {
+            setAnswr(e.target.value);
+          }}
           />
-          <br />
           <Button
-            type="submit"
-            variant="contained"
-            color="inherit"
-            onClick={() =>
-              checkAnswr(answr, question2)
-                ? (userName.Levels.firstMuseum.lvl2 = true)
-                : alert("Wrong answer!")
-            }
-          >
-            Submit answer
-          </Button>
-        </form>
-        <br />
-        <button>
-          <Link to={`/${userName.firstName}/CharentsMuseum/thirdLevel`}>
-            Next Level
-          </Link>
-        </button>
-        <button>
-          <Link to={`/${userName.firstName}/CharentsMuseum/firstLevel`}>
+              fullWidth
+              variant="contained"
+              sx={{ mt: 3, mb: 2 }}
+              onClick= {
+                ()=> {
+                  if(userName.Levels.firstMuseum.lvl2){
+                    alert("already done")
+                  }
+                  else{
+                    checkAnswr(answr, 1422)?updateLvl("1.2",setUserName):alert("wrong answer")
+                  }
+                  
+               }
+               }
+            >
+              Submit answer
+            </Button>
+        <div className="next-prev-cont">
+          <Link to={`/${userName.firstName}/CharentsMuseum/firstLevel`} className = "next-prev">
             Previous Level
           </Link>
-        </button>
-      </div>
-    );
-  if (num === "1.3" && !userName.Levels.firstMuseum.lvl3)
-    //&& latitude===40.182&&longitude===44.509
-    return (
-      <div className="quiz-container">
-        <button>
-          <Link to={`/${userName.firstName}/CharentsMuseum`}>
-            Back to levels
+          <Link to={`/${userName.firstName}/CharentsMuseum/thirdLevel`} className = "next-prev">
+            Next Level
           </Link>
-        </button>
+        </div>
+        <div>
+          <p className = "hint" onClick = {()=>{
+            if(userName.Levels.firstMuseum.lvl2){
+
+            }
+            else if(userName.points > 0)
+              UseHint(setAnswr,'14**')
+            else{
+              setAnswr("you dont have enough points")
+            }
+            }}>Use hint</p>
+        </div>
+      </div>
+      </>
+    );
+  if (num === "1.3")
+    return (
+      <>
+        <Link to={`/${userName.firstName}/CharentsMuseum`}>
+        <ArrowBackIos />
+
+        </Link>
+      <div className="quiz-container">
+     
         <h1 className="num">3</h1>
-        <h2>
-          Which Armenian writers did Charents like to read?(write 3 writers)
+        <h2 className="questions">
+          Name one writer name, that Charents loved to read?
         </h2>
-        <form>
-          <TextField
-            helperText={"separated by commas"}
-            value={answr}
-            onChange={(e) => {
-              setAnswr(e.target.value);
-            }}
-            id="outlined-basic"
-            label="Answer"
-            variant="outlined"
+        <TextField
+          required
+          fullWidth
+          id="answer"
+          label="answer"
+          name="answer"
+          autoComplete="family-name"
+          autoFocus
+          value={answr}
+          onChange={(e) => {
+            setAnswr(e.target.value);
+          }}
           />
-          <br />
+
           <Button
-            type="submit"
-            variant="contained"
-            color="inherit"
-            onClick={() =>
-              checkAnswr(answr, question3)
-                ? (userName.Levels.firstMuseum.lvl3 = true)
-                : alert("Wrong answer!")
-            }
-          >
-            Submit answer
-          </Button>
-        </form>
-        <br />
-        <button>
-          <Link to={`/${userName.firstName}/CharentsMuseum/forthLevel`}>
-            Next Level
-          </Link>
-        </button>
-        <button>
-          <Link to={`/${userName.firstName}/CharentsMuseum/secondLevel`}>
+              fullWidth
+              variant="contained"
+              sx={{ mt: 3, mb: 2 }}
+              onClick= {
+                ()=> {
+                  if(userName.Levels.firstMuseum.lvl3){
+                    alert("already done")
+                  }
+                  else{
+                    checkAnswr(answr, [
+                      "movses khorenatsi",
+                      "pavsto sbuzand",
+                      "grigor narekatsi",
+                      "nahapet kuchak",
+                      "nerses shnorali",
+                      "sayat nova",
+                      "leo",
+                      "hovhannes tumanyan",
+                      "vahan teryan",
+                      "avetik isahakyan",
+                      "misak metsarents",
+                      "bahatur bahaturyan",
+                    ])?updateLvl("1.3",setUserName):alert("wrong answer")
+                  }
+                  
+              
+               }
+               }
+            >
+              Submit answer
+            </Button>
+        <div className = "next-prev-cont">
+          <Link to={`/${userName.firstName}/CharentsMuseum/secondLevel`} className = "next-prev">
             Previous Level
           </Link>
-        </button>
-      </div>
-    );
-  if (num === "1.4" && !userName.Levels.firstMuseum.lvl4)
-    //&& latitude===40.182&&longitude===44.509
-    return (
-      <div className="quiz-container">
-        <button>
-          <Link to={`/${userName.firstName}/CharentsMuseum`}>
-            Back to levels
+          <Link to={`/${userName.firstName}/CharentsMuseum/forthLevel`} className = "next-prev">
+            Next Level
           </Link>
-        </button>
+        </div>
+        <p className = "hint" onClick = {()=>{
+            if(userName.Levels.firstMuseum.lvl3){
+
+            }
+            else if(userName.points > 0)
+              UseHint(setAnswr,'* Metsarents')
+            else{
+              setAnswr("you dont have enough points")
+            }
+            }}>Use hint</p>
+      </div>
+      </>
+    );
+  if (num === "1.4" )
+    return (
+      <>
+      <Link to={`/${userName.firstName}/CharentsMuseum`}>
+      <ArrowBackIos />
+
+    </Link>
+      <div className="quiz-container">
+        
         <h1 className="num">4</h1>
-        <h2>What year was Charents born?</h2>
-        <form>
-          <TextField
-            value={answr}
-            onChange={(e) => {
-              setAnswr(e.target.value);
-            }}
-            id="outlined-basic"
-            label="Answer"
-            variant="outlined"
-          />
-          <br />
+        <h2 className="questions">What year was Charents born?</h2>
+        <TextField
+                  required
+                  fullWidth
+                  id="answer"
+                  label="answer"
+                  name="answer"
+                  autoComplete="family-name"
+                  autoFocus
+                  value={answr}
+                  onChange={(e) => {
+                    setAnswr(e.target.value);
+                  }}
+                />
           <Button
-            type="submit"
-            variant="contained"
-            color="inherit"
-            onClick={() =>
-              checkAnswr(answr, question4)
-                ? (userName.Levels.firstMuseum.lvl4 = true)
-                : alert("Wrong answer!")
-            }
-          >
-            Submit answer
-          </Button>
-        </form>
-        <br />
-        <button>
-          <Link to={`/${userName.firstName}/CharentsMuseum/fifthLevel`}>
+              fullWidth
+              variant="contained"
+              sx={{ mt: 3, mb: 2 }}
+              onClick= {
+                ()=> {
+                  if(userName.Levels.firstMuseum.lvl4){
+                    alert("already done")
+                  }
+                  else{
+                    checkAnswr(answr, 1897)?updateLvl("1.4",setUserName):alert("wrong answer")
+                  }
+                  
+              
+                  
+               }
+               }
+            >
+              Submit answer
+            </Button>
+        <div className = "next-prev-cont">
+          <Link to={`/${userName.firstName}/CharentsMuseum/thirdLevel`} className = "next-prev">
+            Previous Level
+          </Link>
+          <Link to={`/${userName.firstName}/CharentsMuseum/fifthLevel`} className = "next-prev">
             Next Level
           </Link>
-        </button>
-        <button>
-          <Link to={`/${userName.firstName}/CharentsMuseum/thirdLevel`}>
-            Previous Level
-          </Link>
-        </button>
-      </div>
-    );
-  if (num === "1.5" && !userName.Levels.firstMuseum.lvl5)
-    //&& latitude===40.182&&longitude===44.509
-    return (
-      <div className="quiz-container">
-        <button>
-          <Link to={`/${userName.firstName}/CharentsMuseum`}>
-            Back to levels
-          </Link>
-        </button>
-        <h1 className="num">5</h1>
-        <h2>What disease did Charents suffer from?</h2>
-        <form>
-          <TextField
-            value={answr}
-            onChange={(e) => {
-              setAnswr(e.target.value);
-            }}
-            id="outlined-basic"
-            label="Answer"
-            variant="outlined"
-          />
-          <br />
-          <Button
-            type="submit"
-            variant="contained"
-            color="inherit"
-            onClick={() =>
-              checkAnswr(answr, question5)
-                ? (userName.Levels.firstMuseum.lvl4 = true)
-                : alert("Wrong answer!")
+          </div>
+          <p className = "hint" onClick = {()=>{
+            if(userName.Levels.firstMuseum.lvl4){
+
             }
-          >
-            Submit answer
-          </Button>
-        </form>
-        <br />
-        <button>
-          <Link to={`/${userName.firstName}/CharentsMuseum/forthLevel`}>
-            Previous Level
-          </Link>
-        </button>
+            else if(userName.points > 0)
+              UseHint(setAnswr,'18*7')
+            else{
+              setAnswr("you dont have enough points")
+            }
+            }}>Use hint</p>
       </div>
+      </>
+    );
+  if (num === "1.5")
+    return (
+      <>
+      <Link to={`/${userName.firstName}/CharentsMuseum`}>
+      <ArrowBackIos />
+
+    </Link>
+      <div className="quiz-container">
+       
+        <h1 className="num">5</h1>
+        <h2 className="questions">What disease did Charents suffer from?</h2>
+           <TextField
+                  required
+                  fullWidth
+                  id="answer"
+                  label="answer"
+                  name="answer"
+                  autoComplete="family-name"
+                  autoFocus
+                  value={answr}
+                  onChange={(e) => {
+                    setAnswr(e.target.value);
+                  }}
+                />
+          <Button
+              fullWidth
+              variant="contained"
+              sx={{ mt: 3, mb: 2 }}
+              onClick= {
+                ()=> {
+                  if(userName.Levels.firstMuseum.lvl5){
+                    alert("already done")
+                  }
+                  else{
+                    checkAnswr(answr, "morphinism")?updateLvl("1.5",setUserName):alert("wrong answer")
+                  }
+               }
+               }
+            >
+              Submit answer
+            </Button>
+          <div className="next-prev-cont">
+            <Link to={`/${userName.firstName}/CharentsMuseum/forthLevel`} className = "next-prev">
+              Previous Level
+            </Link>
+            
+          </div>
+          <p className = "hint" onClick = {()=>{
+            if(userName.Levels.firstMuseum.lvl5){
+
+            }
+            else if(userName.points > 0)
+              UseHint(setAnswr,'morph')
+            else{
+              setAnswr("you dont have enough points")
+            }
+            }}>Use hint</p>
+      </div>
+      </>
     );
   if (num === "2.1")
     return (

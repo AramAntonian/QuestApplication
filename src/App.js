@@ -61,26 +61,26 @@ function App() {
             <Route path = "TumanyanMuseum" element = {<QuestPage num= "2" userName = {userName}/>}/>
             <Route path = "IsahakyanMuseum" element = {<QuestPage num= "3" userName = {userName}/>}/>
             <Route path = "KomitasMuseum" element = {<QuestPage num= "4" userName = {userName}/>}/>
-            <Route path = "CharentsMuseum/firstLevel" element = {<Levels num = "1.1" userName={userName}/>}/>
-            <Route path = "CharentsMuseum/secondLevel" element = {<Levels num = "1.2" userName={userName}/>}/>
-            <Route path = "CharentsMuseum/thirdLevel" element = {<Levels num = "1.3" userName={userName}/>}/>
-            <Route path = "CharentsMuseum/forthLevel" element = {<Levels num = "1.4" userName={userName}/>}/>
-            <Route path = "CharentsMuseum/fifthLevel" element = {<Levels num = "1.5" userName={userName}/>}/>
-            <Route path = "TumanyanMuseum/firstLevel" element = {<Levels num = "2.1" userName={userName}/>}/>
-            <Route path = "TumanyanMuseum/secondLevel" element = {<Levels num = "2.2" userName={userName}/>}/>
-            <Route path = "TumanyanMuseum/thirdLevel" element = {<Levels num = "2.3" userName={userName}/>}/>
-            <Route path = "TumanyanMuseum/forthLevel" element = {<Levels num = "2.4" userName={userName}/>}/>
-            <Route path = "TumanyanMuseum/fifthLevel" element = {<Levels num = "2.5" userName={userName}/>}/>
-            <Route path = "IsahakyanMuseum/firstLevel" element = {<Levels num = "3.1" userName={userName}/>}/>
-            <Route path = "IsahakyanMuseum/secondLevel" element = {<Levels num = "3.2" userName={userName}/>}/>
-            <Route path = "IsahakyanMuseum/thirdLevel" element = {<Levels num = "3.3" userName={userName}/>}/>
-            <Route path = "IsahakyanMuseum/forthLevel" element = {<Levels num = "3.4" userName={userName}/>}/>
-            <Route path = "IsahakyanMuseum/fifthLevel" element = {<Levels num = "3.5" userName={userName}/>}/>
-            <Route path = "KomitasMuseum/firstLevel" element = {<Levels num = "4.1" userName={userName}/>}/>
-            <Route path = "KomitasMuseum/secondLevel" element = {<Levels num = "4.2" userName={userName}/>}/>
-            <Route path = "KomitasMuseum/thirdLevel" element = {<Levels num = "4.3" userName={userName}/>}/>
-            <Route path = "KomitasMuseum/forthLevel" element = {<Levels num = "4.4" userName={userName}/>}/>
-            <Route path = "KomitasMuseum/fifthLevel" element = {<Levels num = "4.5" userName={userName}/>}/>
+            <Route path = "CharentsMuseum/firstLevel" element = {<Levels num = "1.1" userName={userName} setUserName = {setUserName}/>}/>
+            <Route path = "CharentsMuseum/secondLevel" element = {<Levels num = "1.2" userName={userName} setUserName = {setUserName}/>}/>
+            <Route path = "CharentsMuseum/thirdLevel" element = {<Levels num = "1.3" userName={userName} setUserName = {setUserName}/>}/>
+            <Route path = "CharentsMuseum/forthLevel" element = {<Levels num = "1.4" userName={userName} setUserName = {setUserName}/>}/>
+            <Route path = "CharentsMuseum/fifthLevel" element = {<Levels num = "1.5" userName={userName} setUserName = {setUserName}/>}/>
+            <Route path = "TumanyanMuseum/firstLevel" element = {<Levels num = "2.1" userName={userName} setUserName = {setUserName}/>}/>
+            <Route path = "TumanyanMuseum/secondLevel" element = {<Levels num = "2.2" userName={userName} setUserName = {setUserName}/>}/>
+            <Route path = "TumanyanMuseum/thirdLevel" element = {<Levels num = "2.3" userName={userName} setUserName = {setUserName}/>}/>
+            <Route path = "TumanyanMuseum/forthLevel" element = {<Levels num = "2.4" userName={userName} setUserName = {setUserName}/>}/>
+            <Route path = "TumanyanMuseum/fifthLevel" element = {<Levels num = "2.5" userName={userName} setUserName = {setUserName}/>}/>
+            <Route path = "IsahakyanMuseum/firstLevel" element = {<Levels num = "3.1" userName={userName} setUserName = {setUserName}/>}/>
+            <Route path = "IsahakyanMuseum/secondLevel" element = {<Levels num = "3.2" userName={userName} setUserName = {setUserName}/>}/>
+            <Route path = "IsahakyanMuseum/thirdLevel" element = {<Levels num = "3.3" userName={userName} setUserName = {setUserName}/>}/>
+            <Route path = "IsahakyanMuseum/forthLevel" element = {<Levels num = "3.4" userName={userName} setUserName = {setUserName}/>}/>
+            <Route path = "IsahakyanMuseum/fifthLevel" element = {<Levels num = "3.5" userName={userName} setUserName = {setUserName}/>}/>
+            <Route path = "KomitasMuseum/firstLevel" element = {<Levels num = "4.1" userName={userName} setUserName = {setUserName}/>}/>
+            <Route path = "KomitasMuseum/secondLevel" element = {<Levels num = "4.2" userName={userName} setUserName = {setUserName}/>}/>
+            <Route path = "KomitasMuseum/thirdLevel" element = {<Levels num = "4.3" userName={userName} setUserName = {setUserName}/>}/>
+            <Route path = "KomitasMuseum/forthLevel" element = {<Levels num = "4.4" userName={userName} setUserName = {setUserName}/>}/>
+            <Route path = "KomitasMuseum/fifthLevel" element = {<Levels num = "4.5" userName={userName} setUserName = {setUserName}/>}/>
           </Route>
           <Route path = {`/${userName.firstName}/info`} element = {<UserInfo userName = {userName}/>} />
           <Route path = {`/${userName.firstName}/changePassword`} element = {<PasswordChange   userName = {userName} isSignedIn = {true}/>} />

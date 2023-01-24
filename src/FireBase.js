@@ -34,7 +34,6 @@ const provider = new GoogleAuthProvider();
 
 async function ChangeInfo(firstName, lastName, id, setChanges, navigate) {
   const userRef = doc(data, "users", id);
-  console.log(userRef);
   updateDoc(userRef, {
     firstName: firstName,
     lastName: lastName,
@@ -196,10 +195,68 @@ function sendCode(navigate, email) {
     });
 }
 
-function changeLvlStatus(user) {
-  const docRef = doc(data, "users", user);
-  updateDoc(docRef);
-  //Chi stacvum
+async function updateLvl(lvl,setUserName) {
+  let user =  localStorage.getItem("USERNAME")
+  user = JSON.parse(user)
+  const userRef = doc(data, "users", user.id);
+  const levels = {
+    firstMuseum: {
+      lvl1: lvl === "1.1"?true:user.Levels.firstMuseum.lvl1,
+      lvl2: lvl === "1.2"?true:user.Levels.firstMuseum.lvl2,
+      lvl3: lvl === "1.3"?true:user.Levels.firstMuseum.lvl3,
+      lvl4: lvl === "1.4"?true:user.Levels.firstMuseum.lvl4,
+      lvl5: lvl === "1.5"?true:user.Levels.firstMuseum.lvl5,
+    },
+    secondMuseum: {
+      lvl1: false,
+      lvl2: false,
+      lvl3: false,
+      lvl4: false,
+      lvl5: false,
+    },
+    thirdMuseum: {
+      lvl1: false,
+      lvl2: false,
+      lvl3: false,
+      lvl4: false,
+      lvl5: false,
+    },
+    forthMuseum: {
+      lvl1: false,
+      lvl2: false,
+      lvl3: false,
+      lvl4: false,
+      lvl5: false,
+    },
+  }
+  await updateDoc(userRef, {
+    Levels: levels,
+    points:++user.points
+  });
+  user = {
+    ...user,
+    Levels:levels,
+  }
+  user = JSON.stringify(user)
+  localStorage.setItem("USERNAME",user)
+  alert("right")
+  window.location.reload(true);
+}
+
+async function UseHint(setHint,answer){
+  let user =  localStorage.getItem("USERNAME")
+  user = JSON.parse(user)
+  const userRef = doc(data, "users", user.id);
+  await updateDoc(userRef,{
+    points:user.points - 1
+  })
+  user = {
+    ...user,
+    points:user.points - 1,
+  }
+  user = JSON.stringify(user)
+  localStorage.setItem("USERNAME",user)
+  setHint(answer)
 }
 
 export {
@@ -209,5 +266,8 @@ export {
   signInWithGoogle,
   ChangeInfo,
   sendCode,
-  changeLvlStatus,
+  updateLvl,
+  UseHint
 };
+
+
